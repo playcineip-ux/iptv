@@ -1,0 +1,506 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>playcine — Dê o play na sua diversão</title>
+  <meta name="description" content="Filmes, séries, canais ao vivo e esportes em uma experiência simples, próxima e feita para você. Teste grátis de 6 horas pelo WhatsApp. Dê o play na sua diversão.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#050505">
+  <link rel="canonical" href="https://playcine.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="playcine">
+  <meta property="og:url" content="https://playcine.com.br/">
+  <meta property="og:title" content="playcine — Dê o play na sua diversão">
+  <meta property="og:description" content="Filmes, séries, canais e esportes em uma experiência simples, próxima e feita para você. Teste grátis de 6 horas pelo WhatsApp.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon e ícones -->
+  <link rel="icon" type="image/x-icon" href="images/logo-h3.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo-h3-32x32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/logo-h3-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/logo-h3-512x512.png">
+
+  <!-- Fontes: Anton (impacto) + Poppins (interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <!-- Pré-carrega o hero. M1: o master v2 aprovado passa a servir também o mobile,
+       adaptado por enquadramento no CSS, então o preload vale para toda largura. -->
+  <link rel="preload" as="image" href="images/playcine-hero-desktop-v2.webp">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Dados estruturados: organização -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Playcineiptv",
+        "slogan": "Dê o play na sua diversão.",
+        "description": "Plataforma de entretenimento com filmes, séries, canais ao vivo e esportes. Teste grátis de 6 horas pelo WhatsApp.",
+        "url": "https://playcine.com.br/",
+        "logo": "https://playcine.com.br/assets/img/og-image.png",
+        "sameAs": [
+          "https://www.instagram.com/playcineiptv/",
+          "https://www.instagram.com/playcineiptv/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+554491474545",
+          "availableLanguage": ["Portuguese"]
+        }
+      }
+  </script>
+
+  <!-- Dados estruturados: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Como funciona o teste de 6 horas?", "acceptedAnswer": { "@type": "Answer", "text": "Você solicita pelo WhatsApp, informa o aparelho que vai usar e recebe o acesso. O teste dura 6 horas a partir da liberação, sem burocracia." } },
+      { "@type": "Question", "name": "Em quais aparelhos posso assistir?", "acceptedAnswer": { "@type": "Answer", "text": "Há ampla compatibilidade com celulares e tablets Android, TV Box, Android TV, Smart TVs compatíveis e acesso web. Confirme o seu aparelho com o atendimento." } },
+      { "@type": "Question", "name": "Quantas telas estão incluídas?", "acceptedAnswer": { "@type": "Answer", "text": "Cada plano inclui 1 tela, ou seja, 1 acesso simultâneo. É possível contratar uma tela adicional, que cobre todo o período do plano." } },
+      { "@type": "Question", "name": "Como funciona o pagamento?", "acceptedAnswer": { "@type": "Answer", "text": "Todos os planos aceitam Pix. O Semestral aceita cartão em até 3x e o Anual em até 6x. A ativação é iniciada após a confirmação do pagamento." } },
+      { "@type": "Question", "name": "Quando meu acesso é ativado?", "acceptedAnswer": { "@type": "Answer", "text": "A ativação é iniciada assim que o pagamento é confirmado, com orientação pelo WhatsApp." } },
+      { "@type": "Question", "name": "Como funciona o reembolso?", "acceptedAnswer": { "@type": "Answer", "text": "Você pode solicitar o reembolso pelo nosso WhatsApp em até 7 dias após a compra, de forma simples e sem burocracia." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================ CABEÇALHO ============================================================ -->
+  <header class="site-header" id="header">
+    <div class="container container--xl site-header__inner">
+      <a href="#inicio" class="brand" aria-label="Playcine Play — início">
+        <img src="images/logo-h3.png" width="349" height="380" alt="Playcine">
+        <span class="brand__name">PLAY<span>CINE</span></span>
+        <span class="brand__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>Play</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Menu principal">
+        <a href="#inicio" class="is-active">Início</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#planos">Planos</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+
+      <a class="btn btn--primary header__cta" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="header" href="#">Teste grátis — 6 horas</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================ HERO ============================================================ -->
+    <section class="hero" id="inicio">
+      <picture class="hero__bg">
+        <img src="images/playcine-hero-desktop-v2.webp" width="1672" height="941" alt="Sala de cinema em casa com filmes, séries e esportes na tela" fetchpriority="high">
+      </picture>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow">Entretenimento do seu jeito</p>
+          <h1 class="hero__title">Dê o play na <span class="hl">sua diversão.</span></h1>
+          <p class="hero__sub">Filmes, séries, canais e esportes em uma experiência simples, próxima e feita para você.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--wide" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="hero" href="#">
+              <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              Quero testar por 6 horas
+            </a>
+            <a class="btn btn--outline btn--lg" href="#planos" data-ev="plans" data-loc="hero">
+              Conhecer os planos
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+            </a>
+          </div>
+          <p class="hero__note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg>
+            Solicitação e liberação pelo WhatsApp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sinais rápidos de confiança -->
+    <div class="hero-trust">
+      <div class="container container--xl">
+        <ul class="trust-bar">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M12 6.4V12l3.9 2.3"></path></svg>
+            Teste gratuito de 6 horas
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.6" y="4.2" width="14.6" height="10.4" rx="1.4"></rect><path d="M12.4 18.6h5.6"></path><path d="M15.2 14.6v4"></path><rect x="1.8" y="10.6" width="6" height="9.4" rx="1.3"></rect><path d="M4.1 17.8h1.4"></path></svg>
+            Ampla compatibilidade
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg>
+            Atendimento pelo WhatsApp
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============================================================ EM ALTA (TMDB) + CANAIS ============================================================ -->
+    <section class="cat" id="conteudos">
+      <div class="cat__bg" aria-hidden="true"></div>
+      <div class="cat__haze" aria-hidden="true"></div>
+
+      <div class="cat__inner">
+        <div class="cat__head">
+          <div class="cat__heading">
+            <p class="eyebrow eyebrow--green">Atualizado dinamicamente</p>
+            <h2 class="section-title cat__title">Em alta agora</h2>
+            <p class="section-sub">Filmes e séries que estão movimentando o momento.</p>
+          </div>
+          <div class="trend__tabs" role="tablist" aria-label="Filmes ou séries">
+            <button class="trend__tab is-active" role="tab" aria-selected="true" data-tab="movies">Filmes</button>
+            <button class="trend__tab" role="tab" aria-selected="false" data-tab="series">Séries</button>
+          </div>
+        </div>
+
+        <div class="trend__viewport">
+          <button class="trend__arrow trend__arrow--prev" aria-label="Anterior" data-arrow="prev">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+          </button>
+          <div class="trend__rows">
+            <div class="poster-row" id="moviesRow" data-pane="movies" role="tabpanel" aria-label="Filmes em alta"></div>
+            <div class="poster-row" id="seriesRow" data-pane="series" role="tabpanel" aria-label="Séries em alta" hidden=""></div>
+          </div>
+          <button class="trend__arrow trend__arrow--next" aria-label="Próximo" data-arrow="next">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+          </button>
+        </div>
+
+        <div class="trend__foot">
+          <p class="fineprint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg> Conteúdos em alta. Disponibilidade sob consulta. Dados e imagens: TMDB.</p>
+          <div class="trend__dots" id="trendDots" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="cat__divider" aria-hidden="true"></div>
+
+      <div class="cat__inner">
+        <h2 class="section-title channels__title">Canais para todos os momentos</h2>
+        <p class="section-sub">Informação, diversão e grandes emoções em um só lugar.</p>
+
+        
+
+    <!-- ============================================================ D3 — COMO FUNCIONA + DISPOSITIVOS ============================================================
+         Faixa visual única. O wrapper existe só para carregar um campo
+         atmosférico contínuo (.d3::before) sob os dois blocos: sem ele cada
+         seção precisaria da própria camada de fundo, e o encontro das
+         camadas é justamente o que a página lia como "containers empilhados". -->
+    <div class="d3">
+    <section class="how" id="como-funciona">
+      <div class="cat__inner">
+        <div class="how__panel">
+          <div class="how__intro">
+            <p class="eyebrow">Simples do começo ao play</p>
+            <h2 class="section-title how__title">Como funciona</h2>
+            <p class="section-sub">Você conhece a experiência com orientação pelo WhatsApp.</p>
+          </div>
+          <ol class="steps">
+            <li class="step">
+              <div class="step__mark">
+                <span class="step__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.94 14.46L2 22l5.66-1.48A10 10 0 1012 2z"></path></svg></span>
+                <span class="step__num">1</span>
+              </div>
+              <div class="step__text"><h3>1. Solicite pelo WhatsApp</h3><p>Informe o aparelho que você vai usar.</p></div>
+              <span class="step__link" aria-hidden="true"></span>
+            </li>
+            <li class="step">
+              <div class="step__mark">
+                <span class="step__icon step__icon--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 1H9v2h6V1zm4.03 6.39l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4a9 9 0 109 9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-1-11h2v6h-2V9z"></path></svg></span>
+                <span class="step__num step__num--green">2</span>
+              </div>
+              <div class="step__text"><h3>2. Teste por 6 horas</h3><p>Receba o acesso e conheça a experiência.</p></div>
+              <span class="step__link" aria-hidden="true"></span>
+            </li>
+            <li class="step">
+              <div class="step__mark">
+                <span class="step__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 0a1 1 0 110 2 1 1 0 010-2zm-1.06 13.5L7.4 12.96l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41L10.94 16.5z"></path></svg></span>
+                <span class="step__num">3</span>
+              </div>
+              <div class="step__text"><h3>3. Escolha seu plano</h3><p>Continue com a opção ideal para você.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ DISPOSITIVOS / COMPATIBILIDADE ============================================================ -->
+    <section class="devices" id="dispositivos">
+      <div class="cat__inner">
+        <div class="devices__panel">
+          <div class="devices__top">
+            <div class="devices__intro">
+              <h2 class="section-title devices__title">Diversão em diferentes telas</h2>
+              <p class="section-sub">A compatibilidade depende do aparelho, sistema e aplicativo. Confirme com nosso atendimento.</p>
+            </div>
+
+            <!-- Moldura com telas vazadas; o conteúdo real do TMDB é injetado
+                 atrás dela por js/main.js. Sem catálogo rasterizado no PNG. -->
+            <div class="dv" id="devicesStage">
+              <div class="dv__screen dv__screen--tv" data-screen="tv" data-count="4"></div>
+              <div class="dv__screen dv__screen--tablet" data-screen="tablet" data-count="2"></div>
+              <div class="dv__screen dv__screen--phone" data-screen="phone" data-count="1"></div>
+              <div class="dv__screen dv__screen--laptop" data-screen="laptop" data-count="3"></div>
+              <!-- M3: art direction responsiva do MESMO componente. A moldura
+                   desktop é uma fileira 2,10:1; em tela estreita ela cai para
+                   132px de altura e a tela do celular fica com 27px. Abaixo de
+                   860px entra a moldura mobile (1,48:1), com os mesmos
+                   aparelhos e as mesmas proporções de tela — só rearranjados.
+                   Os recortes têm percentuais próprios no CSS. -->
+              <picture class="dv__framewrap">
+                <source media="(max-width: 860px)" srcset="images/playcine-dispositivos-frame-mobile.webp" width="1202" height="813">
+                <img class="dv__frame" src="images/playcine-dispositivos-frame-desktop.webp" width="1536" height="730" alt="Playcine em celular, tablet, TV Box, Smart TV e notebook" loading="lazy">
+              </picture>
+              <img class="dv__fallback" src="images/playcineabstrato.webp" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy">
+            </div>
+          </div>
+
+          <div class="devices__foot">
+            <div class="chips" role="list">
+              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></svg> Celular Android</span>
+              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H5V6h14v12z"></path></svg> Tablet Android</span>
+              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM7 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11 0h-6v-2h6v2z"></path></svg> TV Box e Android TV</span>
+              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"></path></svg> Smart TV compatível</span>
+              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93A8 8 0 014 12h3v2a2 2 0 002 2v1.93zM17.9 17.39A2 2 0 0016 16h-1v-3a1 1 0 00-1-1H8v-2h2a1 1 0 001-1V7h2a2 2 0 002-2v-.41A8 8 0 0117.9 17.39z"></path></svg> Acesso web</span>
+            </div>
+            <a class="btn btn--primary devices__cta" data-wa="" data-wa-msg="device" data-ev="whatsapp" data-loc="compatibilidade" href="#">
+              Confirmar meu aparelho
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <ul class="hours">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg> Atendimento todos os dias <b>• 9h às 21h</b></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"></path></svg> Suporte seg a sáb <b>• 9h30 às 18h</b></li>
+        </ul>
+      </div>
+    </section>
+    </div><!-- /.d3 -->
+
+    <!-- ============================================================ D4 — PLANOS + BENEFÍCIOS + FAQ + CTA ============================================================
+         Wrapper .d4: mesma arquitetura da D3. Um único campo atmosférico
+         (.d4::before) nasce dentro da D3 e perde força para baixo, para que
+         preto/grafite volte a dominar sem linha seca nem faixa intermediária.
+         Todos os blocos usam a faixa .d4__inner — a mesma largura de .cat__inner
+         das seções aprovadas acima. ============================================================ -->
+    <div class="d4">
+
+    <!-- ---------------------------------------------------------- PLANOS ---------------------------------------------------------- -->
+    <section class="plans" id="planos">
+      <div class="d4__inner">
+        <div class="plans__row">
+          <div class="plans__head">
+            <p class="eyebrow">Escolha como quer dar o play</p>
+            <h2 class="section-title plans__title">Planos para<br>o seu momento</h2>
+            <p class="section-sub plans__sub">Todos os planos incluem 1 tela.</p>
+          </div>
+
+          <div class="plans__cards">
+            <!-- Seletor compacto (mobile) -->
+            <div class="plan-select" id="planSelect" aria-hidden="true"></div>
+
+            <div class="plans__grid" id="plansGrid">
+              <article class="plan" data-plan="Mensal">
+                <div class="plan__badge-slot"></div>
+                <h3 class="plan__name">Mensal</h3>
+                <p class="plan__period">1 mês</p>
+                <p class="plan__price"><span class="cur">R$</span><span class="int">19</span><span class="cents">,90</span></p>
+                <ul class="plan__list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 1 tela incluída</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2.4" transform="rotate(45 12 12)"></rect></svg> Pagamento via Pix</li>
+                </ul>
+                <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Mensal" data-ev="plan" href="#">Escolher Mensal</a>
+              </article>
+
+              <article class="plan" data-plan="Trimestral">
+                <div class="plan__badge-slot"></div>
+                <h3 class="plan__name">Trimestral</h3>
+                <p class="plan__period">3 meses</p>
+                <p class="plan__price"><span class="cur">R$</span><span class="int">49</span><span class="cents">,90</span></p>
+                <ul class="plan__list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 1 tela incluída</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2.4" transform="rotate(45 12 12)"></rect></svg> Pagamento via Pix</li>
+                </ul>
+                <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Trimestral" data-ev="plan" href="#">Escolher Trimestral</a>
+              </article>
+
+              <article class="plan plan--recommended" data-plan="Semestral">
+                <div class="plan__badge-slot"><span class="plan__badge plan__badge--green">Melhor equilíbrio</span></div>
+                <h3 class="plan__name">Semestral</h3>
+                <p class="plan__period">6 meses</p>
+                <p class="plan__price"><span class="cur">R$</span><span class="int">89</span><span class="cents">,90</span></p>
+                <ul class="plan__list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 1 tela incluída</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.2" width="19.2" height="13.6" rx="2"></rect><path d="M2.4 9.8h19.2"></path><path d="M6 14.6h3.8"></path></svg> Pix ou cartão em até 3x</li>
+                </ul>
+                <a class="btn btn--primary plan__cta" data-wa="" data-wa-msg="plan" data-plan="Semestral" data-ev="plan" href="#">Escolher Semestral</a>
+              </article>
+
+              <article class="plan plan--value" data-plan="Anual">
+                <div class="plan__badge-slot"><span class="plan__badge plan__badge--yellow">Maior economia • aprox. 20%</span></div>
+                <h3 class="plan__name">Anual</h3>
+                <p class="plan__period">12 meses</p>
+                <p class="plan__price"><span class="cur">R$</span><span class="int">179</span><span class="cents">,90</span></p>
+                <ul class="plan__list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 1 tela incluída</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.2" width="19.2" height="13.6" rx="2"></rect><path d="M2.4 9.8h19.2"></path><path d="M6 14.6h3.8"></path></svg> Pix ou cartão em até 6x</li>
+                </ul>
+                <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Anual" data-ev="plan" href="#">Escolher Anual</a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tela adicional (colapsável) -->
+        <div class="addon">
+          <button class="addon__toggle" id="addonToggle" aria-expanded="false" aria-controls="addonPanel">
+            <span class="addon__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="4.4" width="13.4" height="9.6" rx="1.5"></rect><path d="M6.4 18h4.8"></path><path d="M8.8 14v4"></path><path d="M18.8 15.2v5.4"></path><path d="M16.1 17.9h5.4"></path></svg></span>
+            <span class="addon__title"><b>Precisa de uma tela adicional?</b> Consulte os valores para cada período.</span>
+            <svg class="addon__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg>
+          </button>
+          <div class="addon__panel" id="addonPanel" hidden="">
+            <ul class="addon__list">
+              <li><span>Mensal</span><b>+ R$ 19,90</b></li>
+              <li><span>Trimestral</span><b>+ R$ 49,90</b></li>
+              <li><span>Semestral</span><b>+ R$ 89,90</b></li>
+              <li><span>Anual</span><b>+ R$ 179,90</b></li>
+            </ul>
+            <p class="addon__note">O acréscimo cobre todo o período do plano correspondente. Cada tela adicional equivale a mais 1 acesso simultâneo.</p>
+          </div>
+        </div>
+
+        <!-- Faixa de confiança -->
+        <ul class="assurance d4-chapa">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M12 6.4V12l3.9 2.3"></path></svg>
+            Teste gratuito de 6 horas
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 13.4v-1.2a7.8 7.8 0 0115.6 0v1.2"></path><rect x="2.4" y="13" width="4.2" height="6.2" rx="1.6"></rect><rect x="17.4" y="13" width="4.2" height="6.2" rx="1.6"></rect><path d="M19.5 19.2v.7a2.3 2.3 0 01-2.3 2.3h-3.4"></path></svg>
+            Atendimento todos os dias • 9h às 21h
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6l7.4 3.1v5.6c0 4.6-3.1 8.6-7.4 9.8-4.3-1.2-7.4-5.2-7.4-9.8V5.7z"></path><path d="M8.7 12.1l2.3 2.3 4.3-4.3"></path></svg>
+            Reembolso em até 7 dias
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- FAQ ---------------------------------------------------------- -->
+    <section class="faq" id="duvidas">
+      <div class="d4__inner">
+        <div class="faq__panel d4-chapa">
+          <div class="faq__intro">
+            <h2 class="section-title faq__title">Dúvidas<br>frequentes</h2>
+            <p class="section-sub">Informação clara antes de você começar.</p>
+          </div>
+          <div class="faq__list">
+            <div class="faq-item">
+              <button class="faq-item__q" aria-expanded="false" data-faq="teste">Como funciona o teste de 6 horas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+              <div class="faq-item__a"><p>Você solicita pelo WhatsApp, informa o aparelho que vai usar e recebe o acesso. O teste dura 6 horas a partir da liberação, de forma simples e sem burocracia.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" aria-expanded="false" data-faq="aparelhos">Em quais aparelhos posso assistir?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+              <div class="faq-item__a"><p>Há ampla compatibilidade com celulares e tablets Android, TV Box, Android TV, Smart TVs compatíveis e acesso web. Existem aplicativos diferentes conforme o aparelho — a equipe indica o ideal para o seu. Confirme o modelo antes de contratar.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" aria-expanded="false" data-faq="telas">Quantas telas estão incluídas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+              <div class="faq-item__a"><p>Cada plano inclui 1 tela, ou seja, 1 acesso simultâneo. Se quiser assistir em mais de um aparelho ao mesmo tempo, é possível contratar uma tela adicional, que cobre todo o período do plano (Mensal + R$ 17,90, Trimestral + R$ 49,90, Semestral + R$ 89,90, Anual + R$ 137,90).</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" aria-expanded="false" data-faq="pagamento">Como funciona o pagamento?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+              <div class="faq-item__a"><p>Todos os planos aceitam Pix. O Semestral aceita cartão em até 3x e o Anual em até 6x. O parcelamento não altera o período contratado, e a ativação é iniciada após a confirmação do pagamento.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" aria-expanded="false" data-faq="ativacao">Quando meu acesso é ativado?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+              <div class="faq-item__a"><p>A ativação é iniciada assim que o pagamento é confirmado. A equipe orienta você pelo WhatsApp sobre o aplicativo e o primeiro acesso.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__q" aria-expanded="false" data-faq="reembolso">Como funciona o reembolso?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+              <div class="faq-item__a"><p>Você pode solicitar o reembolso pelo nosso WhatsApp em até 7 dias após a compra, de forma simples e sem burocracia.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- CTA FINAL ---------------------------------------------------------- -->
+    <section class="final-cta">
+      <div class="d4__inner">
+        <div class="final-cta__box">
+          <div class="final-cta__bg" aria-hidden="true"></div>
+          <div class="final-cta__scrim" aria-hidden="true"></div>
+          <div class="final-cta__content">
+            <h2 class="section-title final-cta__title">Pronto para dar o play?</h2>
+            <p class="section-sub final-cta__sub">Solicite seu teste gratuito de 6 horas e conheça a experiência Playcine.</p>
+            <a class="btn btn--primary final-cta__btn" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="cta_final" href="#">
+              <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              Quero testar por 6 horas
+            </a>
+            <p class="final-cta__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg> <span>Atendimento pelo WhatsApp oficial: <span class="nowrap">+5511966957972 </span></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div><!-- /.d4 -->
+  </main>
+
+  <!-- ============================================================ RODAPÉ ============================================================ -->
+  <footer class="site-footer">
+    <div class="d4__inner site-footer__inner">
+      <a href="#inicio" class="brand brand--footer" aria-label="playcine">
+        <img src="images/logo-h3.png" width="760" height="270" alt="playcine Play" loading="lazy">
+      </a>
+      <span class="footer__domain">playcine.com.br</span>
+      <nav class="footer__nav" aria-label="Rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#planos">Planos</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <a class="footer__wa-block" data-wa="" data-wa-msg="trial" data-ev="whatsapp" data-loc="footer" href="#">
+        <span class="footer__wa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg></span>
+        <span class="footer__wa-text">Atendimento e contratação<br>pelo WhatsApp.</span>
+      </a>
+    </div>
+
+    <div class="d4__inner site-footer__legal">
+      <p>© <span id="year">2026</span> playcine. Todos os direitos reservados.</p>
+      <div class="footer__legal-links">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="https://www.instagram.com/playcineiptv/" data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram @playcineiptv" title="Instagram @playcineiptv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
+        <a href="https://www.instagram.com/playcineiptv/" data-social="instagram2" target="_blank" rel="noopener" aria-label="Instagram @playcineiptv" title="Instagram @playcineiptv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CTA verde fixo (mobile) -->
+  <a class="sticky-cta" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="sticky" href="#" id="stickyCta">
+    <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+    Teste grátis — 6 horas
+  </a>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body></html>

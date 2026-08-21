@@ -1,0 +1,1277 @@
+/* ============================================================
+   CINEPIPOQUEIRA — Novo Visual v1 (pack aprovado 08-08)
+   Verde = ação. Amarelo = destaque/reconhecimento. Creme = títulos.
+   ============================================================ */
+
+:root {
+  --black: #050505;
+  --graphite: #1b1d24;
+  --surface: #101218;
+  --surface-2: #16181f;
+  --yellow: #ffc400;
+  --yellow-deep: #e0a800;
+  --green: #016337;
+  --green-light: #04814a;
+  --green-deep: #013d22;
+  --cream: #fbedd1;
+  --white: #ffffff;
+  --text: #ece7dc;
+  --muted: #a7a294;
+  --line: rgba(255, 196, 0, 0.16);
+  --green-neon: #16b45c;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --container: 1200px;
+  --header-h: 100px;
+
+  --shadow-card: 0 18px 50px rgb(0 0 0 / 40%);
+  --glow-green: 0 0 40px rgb(1 99 55 / 40%);
+  --glow-yellow: 0 0 30px rgb(255 196 0 / 20%);
+
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-title: "Anton", "Arial Black", "Poppins", sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 14px); }
+
+body {
+  font-family: var(--font);
+  background: var(--black);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.container { width: min(var(--container), 92%); margin-inline: auto; }
+/* Faixas editoriais largas (cabeçalho, hero, confiança, catálogo) */
+.container--xl { width: min(1580px, 95%); }
+
+section { position: relative; padding: 84px 0; }
+
+/* ---------- Tipografia utilitária ---------- */
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.04;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.section-title .hl { color: var(--yellow); }
+
+.section-sub { margin-top: 12px; color: var(--muted); font-size: 1rem; max-width: 560px; }
+
+.fineprint {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 18px; font-size: 0.78rem; color: var(--muted);
+}
+.fineprint svg { width: 15px; height: 15px; fill: var(--yellow); flex-shrink: 0; }
+
+.panel {
+  background: var(--graphite);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+/* ============================================================ BOTÕES ============================================================ */
+.btn {
+  --btn-py: 14px; --btn-px: 26px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-weight: 700; font-size: 1rem;
+  padding: var(--btn-py) var(--btn-px);
+  border-radius: var(--radius-sm);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  text-align: center; line-height: 1.1;
+}
+.btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.btn__play { width: 22px; height: 22px; fill: currentColor; flex-shrink: 0; }
+.btn__arrow { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+.btn--primary {
+  background: var(--green); color: var(--white);
+  box-shadow: var(--glow-green);
+}
+.btn--primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 12px 34px rgb(1 99 55 / 55%); }
+
+.btn--outline {
+  background: transparent; color: var(--cream);
+  border: 1.5px solid rgba(255, 196, 0, 0.55);
+}
+.btn--outline:hover { border-color: var(--yellow); background: rgba(255, 196, 0, 0.08); color: var(--yellow); }
+
+.btn--lg { --btn-py: 17px; --btn-px: 32px; font-size: 1.05rem; }
+.btn--sm { --btn-py: 10px; --btn-px: 18px; font-size: 0.9rem; }
+.btn--wide {
+  --btn-py: 17px; --btn-px: 72px; font-size: 1.22rem; text-transform: uppercase; letter-spacing: .05em;
+  box-shadow: none; border: 1px solid rgba(4,129,74,.95); border-radius: 8px;
+}
+.btn--wide .btn__play { width: 26px; height: 26px; }
+
+/* ============================================================ CABEÇALHO ============================================================ */
+.site-header {
+  position: sticky; top: 0; z-index: 100; height: var(--header-h);
+  display: flex; align-items: center;
+  background: var(--black);
+  transition: box-shadow .3s ease;
+}
+.site-header.is-scrolled {
+  background: rgba(5, 5, 5, 0.94);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 6px 26px rgb(0 0 0 / 55%);
+}
+/* 3 colunas: marca à esquerda, nav centralizada NA PÁGINA, CTA à direita */
+.site-header__inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+/* Páginas sem nav (termos/privacidade): o botão continua ancorado à direita */
+.site-header__inner > .btn { grid-column: 3; justify-self: end; }
+
+.brand { display: flex; align-items: center; gap: 5px; justify-self: start; }
+.brand img { height: 57px; width: auto; }
+.brand__name {
+  font-family: var(--font-title); font-size: 1.63rem; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--cream); white-space: nowrap;
+}
+.brand__name span { color: var(--yellow); }
+.brand__play {
+  display: inline-flex; align-items: center; gap: 5px; margin-left: 6px;
+  font-family: var(--font-title); font-size: 1.06rem; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cream); background: #0c1710; border: 1.5px solid var(--yellow);
+  padding: 6px 14px 5px; border-radius: 7px; line-height: 1;
+}
+.brand__play svg { width: 14px; height: 14px; fill: var(--yellow); }
+
+/* M5 — o vão de 56px foi medido no controle de 1672px. Fixo, ele consumia
+   484px de nav e deixava o cabeçalho desktop com 23px de folga logo acima do
+   breakpoint (1201px), com a marca comprimida contra o primeiro link. Fluido,
+   a nav respira junto com a faixa: 3,35vw chega exatamente aos 56px em
+   1672px, então o controle oficial não muda um pixel. */
+.nav { display: flex; align-items: center; gap: clamp(30px, 3.35vw, 56px); }
+.nav a { font-size: 1.1rem; font-weight: 500; color: var(--white); opacity: .92; position: relative; padding: 6px 0; white-space: nowrap; transition: opacity .2s, color .2s; }
+.nav a:hover { opacity: 1; color: var(--cream); }
+.nav a.is-active { color: var(--yellow); opacity: 1; }
+.nav a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--yellow); border-radius: 2px; }
+
+.header__cta {
+  --btn-py: 15px; --btn-px: 38px;
+  font-size: 0.97rem; text-transform: uppercase; letter-spacing: .03em;
+  border-radius: 6px; box-shadow: none; flex-shrink: 0; justify-self: end;
+  border: 1px solid rgba(4,129,74,.9);
+}
+
+.nav-toggle { display: none; width: 44px; height: 44px; border-radius: 10px; background: rgba(255,196,0,.1); border: 1px solid var(--line); align-items: center; justify-content: center; margin-left: auto; }
+.nav-toggle svg { width: 24px; height: 24px; stroke: var(--cream); }
+.nav-toggle .icon-close { display: none; }
+.nav-toggle.is-open .icon-menu { display: none; }
+.nav-toggle.is-open .icon-close { display: block; }
+
+/* ============================================================ HERO ============================================================ */
+.hero {
+  position: relative; min-height: clamp(560px, 73.5vh, 700px);
+  display: flex; align-items: center; padding: 0;
+  overflow: hidden;
+}
+/* O master v2 tem exatamente as dimensões do target (1672×941): exibimos em
+   escala natural e recortamos na vertical no mesmo ponto do mockup. */
+.hero__bg { position: absolute; inset: 0; z-index: 0; display: block; }
+.hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.hero__scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, #050505 0%, #050505 30%, rgba(5,5,5,.74) 44%, rgba(5,5,5,.28) 64%, rgba(5,5,5,0) 88%),
+    linear-gradient(0deg, rgba(5,5,5,.9), transparent 24%);
+}
+.hero__inner { position: relative; z-index: 2; width: min(1512px, 91%); }
+.hero__content { max-width: 720px; padding-top: 8px; }
+.hero__content .eyebrow { font-size: 0.99rem; margin-bottom: 0; }
+/* O target usa um display mais condensado que o Anton natural: compensamos
+   com corpo maior + compressão horizontal, mantendo a mesma largura de linha. */
+.hero__title {
+  font-family: var(--font-title); font-weight: 400; text-transform: uppercase;
+  font-size: clamp(2.6rem, 7.05vw, 7.4rem); line-height: 1.05; letter-spacing: 0;
+  color: var(--cream); margin-top: 24px;
+  text-shadow: 0 6px 28px rgba(0,0,0,.55);
+  transform: scaleX(.82); transform-origin: left top;
+}
+/* Quebra editorial do mockup: "DÊ O PLAY NA" / "SUA DIVERSÃO." */
+.hero__title .hl { color: var(--cream); display: block; }
+.hero__sub { margin-top: 34px; font-size: clamp(1rem, 1.3vw, 1.32rem); line-height: 1.6; color: var(--text); max-width: 540px; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 22px; margin-top: 46px; }
+.hero__actions .btn { flex: 0 0 auto; }
+.hero__actions .btn--outline {
+  --btn-py: 14px; --btn-px: 36px; font-size: 1.13rem; font-weight: 400;
+  border-width: 1px; border-color: rgba(251,237,209,.55); border-radius: 8px;
+}
+.hero__actions .btn--outline .btn__arrow { width: 20px; height: 20px; opacity: .85; }
+.hero__note { display: flex; align-items: center; gap: 11px; margin-top: 34px; font-size: 0.97rem; color: var(--cream); }
+.hero__note svg { width: 21px; height: 21px; stroke: var(--cream); flex-shrink: 0; }
+
+.hero-trust { position: relative; z-index: 5; margin-top: 20px; }
+/* D5 — a faixa de confiança vinha de .container--xl (min(1580px, 95%)) e ficava
+   ~38px mais larga de cada lado que a faixa min(1504px, 90%) que D2, D3 e D4
+   usam. Como é uma caixa com borda visível e o título da D2 começa 14px abaixo,
+   as duas aparecem na mesma tela e o degrau lateral é perceptível. Passa a
+   seguir a faixa das seções. Header e hero permanecem como aprovados na D1. */
+.hero-trust > .container { width: min(1504px, 90%); }
+.trust-bar {
+  display: grid; grid-template-columns: 1fr 0.92fr 1.1fr;
+  padding: 23px 10px;
+  background: rgba(14, 13, 15, 0.7); border: 1px solid rgba(255,196,0,.18); border-radius: 10px;
+  box-shadow: 0 18px 44px rgb(0 0 0 / 45%);
+}
+.trust-bar li { display: flex; align-items: center; justify-content: center; gap: 28px; font-weight: 400; font-size: 1.32rem; color: var(--white); padding: 2px 16px; }
+.trust-bar li + li { border-left: 1px solid rgba(255,196,0,.22); }
+.trust-bar svg { width: 44px; height: 44px; stroke: var(--yellow); stroke-width: 2.3; flex-shrink: 0; }
+
+/* ============================================================ EM ALTA + CANAIS (target v2) ============================================================
+   Composição contínua e full-bleed: sem painel macro envolvendo as áreas.
+   O fundo é o asset de produção em baixa opacidade + haze verde em CSS. */
+.cat { position: relative; padding: 14px 0 34px; background: var(--black); }
+/* As duas camadas de fundo começam ACIMA da seção e terminam ABAIXO dela,
+   com máscara nas pontas: a D2 nasce da continuidade da página em vez de
+   entrar como um bloco novo com corte reto no topo. */
+.cat__bg, .cat__haze {
+  position: absolute; left: 0; right: 0; top: -230px; bottom: -230px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.45) 150px, #000 300px, #000 calc(100% - 400px), rgba(0,0,0,.5) calc(100% - 230px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.45) 150px, #000 300px, #000 calc(100% - 400px), rgba(0,0,0,.5) calc(100% - 230px), transparent 100%);
+}
+/* O asset entra dessaturado e em baixa opacidade: serve como textura, não
+   como estrutura — as colunas douradas dele não existem no target v2. */
+.cat__bg {
+  z-index: 0;
+  background: url("../images/cinepipoqueira-catalogo-canais-bg-desktop.webp") center / cover no-repeat;
+  opacity: .3; filter: saturate(.45) brightness(.85);
+}
+/* Haze verde controlado por cima */
+.cat__haze {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 46% 44% at 5% 24%, rgba(11, 190, 96, .32), transparent 66%),
+    radial-gradient(ellipse 46% 44% at 96% 25%, rgba(11, 190, 96, .28), transparent 66%),
+    radial-gradient(ellipse 70% 40% at 50% 62%, rgba(6, 130, 66, .18), transparent 74%),
+    linear-gradient(180deg, rgba(5,5,5,.5) 0, rgba(5,5,5,.2) 26%, rgba(5,5,5,.2) 72%, rgba(5,5,5,.6));
+}
+.cat__inner { position: relative; z-index: 2; width: min(1504px, 90%); margin-inline: auto; }
+
+.cat .section-sub { font-size: 0.92rem; margin-top: 8px; color: #b9b4a8; }
+.cat__title { font-size: clamp(2rem, 3.55vw, 3.35rem); }
+.channels__title { font-size: clamp(1.9rem, 3.2vw, 3rem); }
+
+.eyebrow--green { color: var(--green-neon); }
+
+.cat__head { display: flex; align-items: flex-end; gap: 24px; margin-bottom: 8px; flex-wrap: wrap; }
+.cat__heading { min-width: 0; }
+
+/* Abas em texto puro com sublinhado verde luminoso (target v2) */
+.trend__tabs {
+  display: inline-flex; gap: 56px; background: none; padding: 0; border: 0; border-radius: 0;
+  margin-left: auto; margin-right: 33%; position: relative;
+}
+.trend__tabs::after {
+  content: ""; position: absolute; left: -36px; right: -18px; bottom: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(9,168,86,.45) 25%, rgba(9,168,86,.45) 75%, transparent);
+}
+.trend__tab {
+  padding: 6px 2px 13px; border-radius: 0; font-weight: 500; font-size: 1.08rem;
+  letter-spacing: .06em; text-transform: uppercase; color: #9d9a92;
+  position: relative; transition: color .2s;
+}
+.trend__tab:hover { color: var(--cream); }
+.trend__tab.is-active { color: var(--white); }
+.trend__tab.is-active::after {
+  content: ""; position: absolute; left: -26px; right: -26px; bottom: 0; height: 2px; z-index: 1;
+  background: linear-gradient(90deg, rgba(9,168,86,0), #3dffa0 50%, rgba(9,168,86,0));
+  box-shadow: 0 0 14px 2px rgba(9,168,86,.65);
+}
+
+.trend__viewport { position: relative; }
+.trend__rows { min-width: 0; overflow: hidden; }
+.trend__arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,196,0,.45); color: var(--yellow); background: rgba(5,5,5,.55);
+  backdrop-filter: blur(4px); transition: background .2s, border-color .2s;
+}
+/* Seta esquerda em verde, direita em dourado — conforme o target v2 */
+.trend__arrow--prev { left: -56px; border-color: rgba(9,168,86,.65); color: #3dffa0; }
+.trend__arrow--prev:hover { background: rgba(9,168,86,.18); border-color: #3dffa0; }
+.trend__arrow--next { right: -56px; }
+.trend__arrow:hover { background: rgba(255,196,0,.16); border-color: var(--yellow); }
+.trend__arrow svg { width: 24px; height: 24px; fill: currentColor; }
+
+.poster-row {
+  display: flex; gap: 18px; overflow-x: auto; padding: 3px 2px 4px;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.poster-row::-webkit-scrollbar { display: none; }
+
+.poster {
+  position: relative; flex: 0 0 calc((100% - 90px) / 6); scroll-snap-align: start;
+  aspect-ratio: 2 / 3; border-radius: 6px; overflow: hidden;
+  border: 1px solid rgba(255,196,0,.5); background: var(--graphite);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.poster:hover { transform: translateY(-5px); border-color: var(--yellow); box-shadow: 0 16px 40px rgb(0 0 0 / 55%); }
+.poster img { width: 100%; height: 100%; object-fit: cover; }
+/* Faixa inferior sólida do mockup (play + menu) */
+.poster::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 62px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(5,5,5,0), rgba(5,5,5,.72) 38%, rgba(5,5,5,.94));
+}
+.poster__play {
+  position: absolute; left: 11px; bottom: 12px; z-index: 2;
+  width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid rgba(255,196,0,.75);
+  display: flex; align-items: center; justify-content: center; background: rgba(5,5,5,.5);
+}
+.poster__play svg { width: 13px; height: 13px; fill: var(--yellow); margin-left: 2px; }
+.poster__cap {
+  position: absolute; left: 12px; right: 40px; bottom: 14px; z-index: 2;
+  font-size: 0.78rem; font-weight: 600; color: var(--white);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  opacity: 0; transform: translateY(6px); transition: opacity .2s, transform .2s;
+}
+.poster:hover .poster__cap { opacity: 1; transform: none; }
+/* A nota do TMDB continua no DOM (dado real), mas o target v2 não a exibe. */
+.poster__tag { display: none; }
+.poster__dots { position: absolute; right: 12px; bottom: 16px; z-index: 2; color: rgba(251,237,209,.7); font-size: 1.05rem; letter-spacing: 1px; line-height: .5; }
+
+/* Rodapé do carrossel: nota à esquerda, dots centralizados na faixa */
+.trend__foot { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-top: 8px; }
+.trend__foot .fineprint { margin-top: 0; }
+.trend__dots { display: flex; justify-content: center; gap: 11px; grid-column: 2; }
+.trend__dots button { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.24); transition: background .2s; padding: 0; }
+.trend__dots button.is-active { background: #17c163; box-shadow: 0 0 10px 1px rgba(9,168,86,.7); }
+
+/* Divisória verde luminosa de borda a borda, com flare no centro */
+.cat__divider {
+  position: relative; z-index: 2; height: 2px; margin: 17px 0 15px;
+  background: linear-gradient(90deg, rgba(9,168,86,0), rgba(9,168,86,.5) 22%, rgba(9,168,86,.6) 78%, rgba(9,168,86,0));
+}
+.cat__divider::after {
+  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 46%; height: 3px; border-radius: 50%;
+  background: radial-gradient(ellipse at center, #d9ffe9 0%, #3dffa0 18%, rgba(9,168,86,.35) 55%, transparent 78%);
+  box-shadow: 0 0 26px 5px rgba(9,168,86,.45);
+}
+
+.channels__cols { display: grid; grid-template-columns: 1.295fr 1fr; gap: 40px; margin-top: 4px; }
+.channels__block {
+  border: 1px solid rgba(255,196,0,.22); border-radius: 6px;
+  background: rgba(6,8,10,.42); padding: 13px 24px 17px;
+}
+.channels__block .eyebrow { margin-bottom: 5px; font-size: 0.92rem; letter-spacing: .09em; }
+/* M5 — mesma correção que a M2 aplicou no mobile, agora na base. Em `1fr` o
+   mínimo automático da trilha é o min-content do tile, que é a largura
+   intrínseca da logo (~170px). Entre 1240 e 1310px as trilhas passavam a
+   empurrar o documento para fora; em 1025–1200, com as duas colunas de
+   .channels__cols, a grade dos canais invadia o bloco das competições. A
+   1580/1672px as colunas já são maiores que 170px, então nada muda lá. */
+.tile-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.tile-grid--comp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tile {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 2.53 / 1; padding: 5px; border-radius: 4px;
+  background: linear-gradient(160deg, rgba(20,17,10,.9), #07080a);
+  border: 1px solid rgba(255,196,0,.4);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.tile:hover { border-color: rgba(4,129,74,.9); box-shadow: var(--glow-green); transform: translateY(-3px); }
+/* Logos oficiais: halo claro apenas para destacar marcas escuras sobre o
+   tile preto — as cores originais das marcas não são alteradas. */
+.tile img {
+  max-height: 50px; max-width: 80%; width: auto; object-fit: contain;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,.6)) drop-shadow(0 0 4px rgba(255,255,255,.22));
+}
+.tile-grid--comp .tile img { max-height: 55px; }
+
+/* ============================================================ COMO FUNCIONA + DISPOSITIVOS (D3) ============================================================
+   A D3 é UMA faixa visual, não duas seções vizinhas.
+
+   Até a D3.1 cada seção carregava a própria camada de fundo (.d3-atmos--how,
+   .d3-atmos--devices) mais uma ponte (.how::before) sobre a fronteira. A soma
+   das três dava um perfil de luminância liso, mas cada camada reiniciava a
+   própria geometria de brilho — os focos verdes mudavam de posição e de
+   tamanho na emenda —, e o olho lê esse reinício como começo de seção mesmo
+   quando o tom não muda. Agora existe um único campo, preso ao wrapper .d3,
+   que nasce dentro da D2 e morre depois dos dispositivos. Sem encontro de
+   camadas não há emenda a esconder. */
+.d3 { position: relative; }
+/* Campo atmosférico completo da D3. Os focos verdes ficam nas MESMAS colunas
+   do haze da D2 (5% / 96%) e são elipses altas, únicas, que atravessam a
+   faixa inteira: a luz lateral continua de uma seção para a outra em vez de
+   recomeçar. As máscaras existem só nas duas pontas externas. */
+.d3::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -420px; bottom: -200px;
+  z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 46% 58% at 4% 38%, rgba(11, 190, 96, .19), transparent 72%),
+    radial-gradient(ellipse 46% 58% at 97% 40%, rgba(11, 190, 96, .16), transparent 72%),
+    radial-gradient(ellipse 74% 40% at 50% 84%, rgba(6, 130, 66, .12), transparent 76%),
+    linear-gradient(180deg, rgba(24,26,32,.40) 0, rgba(17,19,24,.32) 34%, rgba(11,13,17,.24) 66%, rgba(6,7,9,.16) 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.28) 170px, rgba(0,0,0,.72) 330px, #000 460px, #000 calc(100% - 260px), rgba(0,0,0,.55) calc(100% - 130px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.28) 170px, rgba(0,0,0,.72) 330px, #000 460px, #000 calc(100% - 260px), rgba(0,0,0,.55) calc(100% - 130px), transparent 100%);
+}
+/* Sem fundo opaco nas seções: um retângulo preto começando na fronteira
+   cortava o sangramento da D2. O preto vem do body. */
+.how, .devices { position: relative; }
+/* padding-bottom zerado: era o vão de 26 px que separava as duas metades da
+   superfície e deixava passar uma faixa clara de fundo entre elas. */
+.how { padding: 78px 0 0; }
+.devices { padding: 0 0 44px; }
+.how > .cat__inner, .devices > .cat__inner { position: relative; z-index: 1; }
+
+/* Superfície única. "Como funciona" e "Diversão em diferentes telas" são as
+   duas metades de uma mesma chapa: a borda lateral atravessa a junção sem
+   interrupção e não existe fio horizontal entre elas. Antes havia duas
+   bordas a 27 px de distância, cada uma com o dobro da luminância do
+   entorno — era esse par de fios, e não o fundo, que criava a leitura de
+   dois containers. */
+.how__panel, .devices__panel {
+  background: rgba(9, 10, 13, .42); border: 1px solid rgba(255, 255, 255, .05);
+  padding: 30px 40px;
+}
+/* Metade de cima: sem borda inferior, cantos arredondados só no topo. */
+.how__panel {
+  display: grid; grid-template-columns: 0.66fr 2fr; gap: 44px; align-items: center;
+  padding-top: 56px;
+  border-bottom: 0; border-radius: 8px 8px 0 0;
+  /* o preenchimento nasce do próprio campo e chega ao tom da metade de baixo
+     antes da junção, para não haver degrau de tom entre as duas */
+  background: linear-gradient(180deg, rgba(9,10,13,0) 0, rgba(9,10,13,.26) 74px, rgba(9,10,13,.42) 150px);
+  /* dissolve o topo da chapa: a moldura continua existindo, mas deixa de
+     começar num ponto definido. A rampa termina em 50 px, dentro do
+     padding-top de 56 px, então nenhum conteúdo é atenuado. */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.6) 24px, #000 50px);
+  mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.6) 24px, #000 50px);
+}
+/* Metade de baixo: sem borda superior, cantos arredondados só embaixo. */
+.devices__panel { border-top: 0; border-radius: 0 0 8px 8px; }
+.how__title { font-size: clamp(1.9rem, 3.2vw, 3rem); }
+.how .section-sub, .devices .section-sub { font-size: 0.97rem; margin-top: 12px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.step { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+.step__mark { position: relative; width: 86px; height: 86px; flex-shrink: 0; }
+.step__icon {
+  width: 86px; height: 86px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(255,196,0,.55); background: rgba(255,196,0,.05);
+}
+.step__icon svg { width: 40px; height: 40px; fill: var(--yellow); }
+.step__icon--green { border-color: rgba(9,168,86,.8); background: rgba(9,168,86,.08); }
+.step__icon--green svg { fill: #17c163; }
+.step__num {
+  position: absolute; top: -16px; left: -16px; width: 46px; height: 46px; border-radius: 50%;
+  background: #07080a; border: 2px solid var(--yellow); color: var(--yellow);
+  font-family: var(--font-title); font-size: 1.35rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.step__num--green { border-color: #17c163; color: #17c163; }
+.step__text h3 { font-size: 1rem; font-weight: 700; color: var(--cream); text-transform: uppercase; letter-spacing: .4px; line-height: 1.3; }
+.step__text p { font-size: 0.92rem; color: var(--muted); margin-top: 7px; line-height: 1.5; }
+/* Conector tracejado com seta entre os passos */
+.step__link {
+  position: absolute; top: 43px; right: -34px; width: 28px; height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255,196,0,.7) 0 7px, transparent 7px 14px);
+}
+.step__link::after {
+  content: ""; position: absolute; right: -2px; top: -4px;
+  border-left: 8px solid rgba(255,196,0,.8); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+}
+
+/* ============================================================ DISPOSITIVOS ============================================================ */
+.devices__top { display: grid; grid-template-columns: 0.62fr 1.48fr; align-items: center; gap: 36px; margin-bottom: 26px; }
+.devices__title { font-size: clamp(1.8rem, 2.85vw, 2.7rem); }
+
+/* Moldura + telas: o conteúdo fica atrás e aparece pelos recortes do PNG */
+.dv { position: relative; width: 100%; }
+.dv__framewrap { display: block; }
+.dv__frame { position: relative; z-index: 2; width: 100%; height: auto; display: block; }
+.dv__fallback { display: none; }
+.dv.is-empty .dv__framewrap { display: none; }
+.dv.is-empty .dv__fallback { display: block; width: 78%; height: auto; margin-inline: auto; }
+.dv__screen {
+  position: absolute; z-index: 1; overflow: hidden; display: flex; gap: 3px;
+  background: linear-gradient(150deg, #0d1a14, #06120c 60%, #0a0f14);
+}
+/* Pôsteres mantêm a proporção 2:3; a tela corta o excedente, como uma
+   fileira de catálogo real em vez de imagens esticadas. */
+.dv__screen img { height: 100%; width: auto; flex: 0 0 auto; object-fit: cover; }
+/* Brilho de tela ligada por cima do conteúdo */
+.dv__screen::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 55%, rgba(9,168,86,.22), transparent 70%),
+    linear-gradient(160deg, rgba(255,196,0,.1), transparent 45%);
+}
+/* Retângulos medidos no canal alfa da moldura (1536×730) */
+.dv__screen--tv     { left: 24.87%; top: 4.52%;  width: 56.90%; height: 66.30%; }
+.dv__screen--tablet { left: 12.04%; top: 30.82%; width: 15.89%; height: 50.00%; }
+.dv__screen--phone  { left: 4.30%;  top: 51.10%; width: 8.40%;  height: 37.95%; }
+.dv__screen--laptop { left: 70.90%; top: 52.19%; width: 23.11%; height: 30.41%; }
+
+.devices__foot { display: flex; flex-wrap: wrap; align-items: stretch; gap: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 14px; flex: 1 1 auto; }
+.chip {
+  display: inline-flex; align-items: center; gap: 12px; padding: 13px 18px; max-width: 200px;
+  border-radius: 6px; background: rgba(10,11,14,.6); border: 1px solid rgba(255,196,0,.42);
+  font-size: 0.9rem; font-weight: 600; color: var(--cream); text-transform: uppercase; letter-spacing: .4px; line-height: 1.25;
+}
+.chip svg { width: 26px; height: 26px; fill: var(--yellow); flex-shrink: 0; }
+.devices__cta {
+  margin-left: auto; --btn-py: 18px; --btn-px: 34px;
+  font-size: 1.02rem; text-transform: uppercase; letter-spacing: .04em;
+  border-radius: 6px; box-shadow: none; border: 1px solid rgba(4,129,74,.95);
+}
+
+.hours {
+  display: flex; justify-content: center; align-items: center; gap: 0; margin-top: 24px; flex-wrap: wrap;
+  background: rgba(9,10,13,.45); border: 1px solid rgba(255,255,255,.05); border-radius: 8px; padding: 20px 10px;
+}
+.hours li { display: flex; align-items: center; justify-content: center; gap: 14px; flex: 1 1 0; padding: 2px 20px; font-size: 1.02rem; letter-spacing: .4px; text-transform: uppercase; color: var(--text); }
+.hours li + li { border-left: 1px solid rgba(255,255,255,.1); }
+.hours b { color: var(--yellow); font-weight: 600; }
+.hours svg { width: 30px; height: 30px; fill: var(--yellow); flex-shrink: 0; }
+
+/* ============================================================ D4 — PLANOS + BENEFÍCIOS + FAQ + CTA + RODAPÉ ============================================================
+   Mesma arquitetura da D3.2: um wrapper (.d4) carrega UM único campo
+   atmosférico. O campo nasce 360 px dentro da D3 e morre antes do rodapé, de
+   modo que o verde perde força gradualmente e o preto/grafite volta a dominar
+   sem linha seca, sem faixa preta intermediária e sem reinício de padrão.
+
+   Largura: .d4__inner repete exatamente a faixa de .cat__inner (min(1504px,
+   90%)) usada nas seções aprovadas acima. Era o `--container: 1200px` que
+   criava o degrau D3 → D4; a variável continua 1200 para header, hero e
+   páginas legais, que estão fora do escopo.
+
+   Ritmo interno: o target empilha os blocos com vãos de 12–18 px, não com os
+   84 px de `section { padding }`. Planos, tela adicional, benefícios, FAQ e CTA
+   são chapas quase encostadas sobre um campo comum — é isso que faz a D4 ser
+   lida como uma composição só, e não como caixas independentes. */
+.d4 { position: relative; }
+.d4::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -360px; bottom: 0;
+  z-index: 0; pointer-events: none;
+  /* focos verdes nas MESMAS colunas do campo da D3 (4% / 97%): a luz lateral
+     continua da seção anterior em vez de recomeçar na fronteira.
+
+     D4.1 — o campo antigo morria cedo: o gradiente linear zerava perto de 58%
+     e a máscara já apagava tudo a partir de 74%, justamente onde estão a faixa
+     de benefícios (62–69%), o FAQ (70–82%) e o CTA (83–98%). Resultado: da
+     linha de cards para baixo o fundo lateral virava preto chapado (L≈5)
+     enquanto o miolo dos painéis ficava em L≈15, e esse degrau de 10 níveis
+     desenhava dois retângulos recortados. Agora o campo atravessa a região
+     inteira: os focos laterais ganham um segundo par na altura dos painéis,
+     nas mesmas colunas, e a máscara só desbota nos últimos 12%. */
+  background:
+    radial-gradient(ellipse 42% 34% at 4% 16%, rgba(11, 190, 96, .17), transparent 72%),
+    radial-gradient(ellipse 42% 34% at 97% 14%, rgba(11, 190, 96, .14), transparent 72%),
+    radial-gradient(ellipse 64% 26% at 50% 3%, rgba(6, 130, 66, .13), transparent 76%),
+    radial-gradient(ellipse 34% 32% at 2% 70%, rgba(11, 190, 96, .055), transparent 74%),
+    radial-gradient(ellipse 34% 32% at 99% 68%, rgba(11, 190, 96, .048), transparent 74%),
+    linear-gradient(180deg, rgba(6, 24, 15, .34) 0, rgba(7, 19, 13, .21) 28%, rgba(10, 12, 17, .15) 54%, rgba(12, 14, 19, .17) 72%, rgba(12, 14, 19, .15) 90%, rgba(12, 14, 19, 0) 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.5) 150px, #000 340px, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.5) 150px, #000 340px, #000 88%, transparent 100%);
+}
+.d4__inner { position: relative; z-index: 1; width: min(1504px, 90%); margin-inline: auto; }
+
+/* D4.1 — chapas com as pontas dissolvidas.
+   O preenchimento e o filete das duas superfícies (faixa de benefícios e
+   painel do FAQ) saem do elemento e passam a viver em pseudo-elementos com
+   máscara horizontal. Era o filete a L≈24 contra um exterior a L≈5 que
+   desenhava a quina: com as pontas desbotando, a borda continua legível no
+   miolo — a chapa segue lida como um elemento organizado — e some antes de
+   fechar o retângulo. Mesmo princípio da D3.2, aplicado no eixo horizontal. */
+.d4-chapa::before, .d4-chapa::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+}
+.d4-chapa::before {
+  z-index: 0; background: rgba(11,12,16,.8);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+.d4-chapa::after {
+  z-index: 1; border: 1px solid rgba(255,255,255,.07);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+
+/* ---------------------------------------------------------- PLANOS ---------------------------------------------------------- */
+/* sem background próprio: o preto vem do body e o campo vem do .d4 — um
+   retângulo opaco aqui cortaria o sangramento vindo da D3 (lição da D3.1) */
+.plans { padding: 58px 0 0; }
+
+.plans__row { display: grid; grid-template-columns: 396px 1fr; gap: 40px; align-items: start; }
+.plans__head { padding-top: 4px; }
+.plans .eyebrow { font-size: .78rem; letter-spacing: .19em; margin-bottom: 14px; }
+.plans__title { font-size: clamp(2.3rem, 3.55vw, 3.7rem); line-height: 1.03; }
+.plans__sub { font-size: .94rem; margin-top: 26px; }
+.plans__cards { min-width: 0; }
+
+/* M5 — a M4 já tinha feito isto abaixo de 1024px; a causa, porém, é da base.
+   Com `1fr` o mínimo da trilha é o min-content do card, e o min-content do
+   Anual era o badge com `white-space: nowrap` (229px). De 1025 a 1570px isso
+   dava quatro cards de larguras diferentes (151/165/161/229) e estouro do
+   documento até 1310px. A 1580/1672px as colunas já passam de 230px e o badge
+   continua cabendo numa linha: o controle não muda. */
+.plans__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.plan {
+  display: flex; flex-direction: column; position: relative;
+  background: linear-gradient(180deg, #101218 0%, #0a0b10 100%);
+  border: 1px solid rgba(255,196,0,.34); border-radius: 6px;
+  padding: 18px 16px 17px; transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.plan:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.plan__badge-slot { min-height: 21px; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; }
+.plan__badge { font-size: .625rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 4px 11px; border-radius: 999px; white-space: normal; text-wrap: balance; line-height: 1.15; }
+.plan__badge--green { background: #0d6b37; color: #eafaf0; }
+.plan__badge--yellow { background: var(--yellow); color: #0a0a0a; }
+.plan__name { font-family: var(--font-title); font-weight: 400; font-size: 1.78rem; line-height: 1.06; text-transform: uppercase; letter-spacing: .4px; color: var(--cream); text-align: center; }
+.plan__period { text-align: center; color: var(--muted); font-size: .84rem; line-height: 1.5; margin-top: 1px; }
+/* o filete dourado do target vive entre período e preço */
+.plan__price {
+  text-align: center; color: var(--cream); font-family: var(--font-title); line-height: 1;
+  margin: 12px 11px 10px; padding-top: 13px; border-top: 1px solid rgba(255,196,0,.34);
+}
+.plan__price .cur { font-family: var(--font); font-weight: 600; font-size: .92rem; color: var(--cream); vertical-align: 13px; margin-right: 4px; }
+.plan__price .int { font-size: 2.75rem; letter-spacing: -.5px; }
+.plan__price .cents { font-size: 1.25rem; }
+.plan__list { display: grid; gap: 8px; margin: 0 0 13px; padding-left: 10px; flex-grow: 1; align-content: start; }
+.plan__list li { display: flex; align-items: center; gap: 9px; font-size: .845rem; line-height: 1.4; color: var(--text); }
+.plan__list svg { width: 18px; height: 18px; fill: none; stroke: var(--yellow); flex-shrink: 0; }
+.plan__cta { width: 100%; --btn-py: 12px; --btn-px: 8px; font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; border-radius: 4px; border-width: 1px; }
+
+.plan--recommended { border-color: rgba(8,150,84,.78); background: linear-gradient(180deg, #0a1a12 0%, #05100a 100%); }
+.plan--recommended .plan__cta { background: #0f7b45; box-shadow: none; }
+.plan--recommended .plan__cta:hover { background: var(--green-light); }
+.plan--value { border-color: rgba(255,196,0,.55); }
+
+/* Seletor compacto (mobile) */
+.plan-select { display: none; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px; }
+.plan-select__item {
+  text-align: center; padding: 16px 12px; border-radius: var(--radius-sm);
+  background: var(--surface-2); border: 1.5px solid rgba(255,196,0,.25);
+  position: relative;
+}
+.plan-select__item .ps-badge { display: block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+.plan-select__item .ps-name { font-family: var(--font-title); font-size: 1.1rem; text-transform: uppercase; color: var(--cream); }
+.plan-select__item .ps-price { font-family: var(--font-title); color: var(--cream); font-size: 1rem; }
+.plan-select__item .ps-price .cur { font-family: var(--font); font-size: .7rem; color: var(--muted); }
+.plan-select__item.is-selected { border-color: var(--green-light); box-shadow: var(--glow-green); }
+.plan-select__item[data-badge="yellow"].is-selected { border-color: var(--yellow); box-shadow: var(--glow-yellow); }
+
+/* Tela adicional colapsável — barra de linha única, como no target */
+.addon { width: min(1040px, 70%); margin: 18px auto 0; }
+.addon__toggle {
+  width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+  text-align: left; padding: 6px 22px; border-radius: 6px;
+  background: rgba(12,13,17,.82); border: 1px solid rgba(255,196,0,.22);
+}
+.addon__icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; }
+.addon__icon svg { width: 24px; height: 24px; fill: none; stroke: var(--yellow); }
+.addon__title { font-size: .86rem; color: var(--muted); line-height: 1.5; }
+.addon__title b { color: var(--cream); font-size: .95rem; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; margin-right: 10px; }
+.addon__chev { width: 20px; height: 20px; fill: none; stroke: var(--yellow); transition: transform .3s; }
+.addon.is-open .addon__chev { transform: rotate(180deg); }
+.addon__panel { padding: 14px 2px 2px; }
+.addon__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.addon__list li { background: rgba(16,18,24,.85); border: 1px solid rgba(255,196,0,.18); border-radius: 6px; padding: 10px; text-align: center; }
+.addon__list span { display: block; font-size: 0.76rem; color: var(--muted); }
+.addon__list b { display: block; margin-top: 3px; color: var(--yellow); font-size: 0.98rem; }
+.addon__note { margin-top: 12px; font-size: 0.78rem; color: var(--muted); text-align: center; }
+
+/* Faixa de confiança — barra baixa com divisórias, não três cards */
+.assurance {
+  width: min(1308px, 87%); margin: 15px auto 0;
+  display: grid; grid-template-columns: 1fr 1.26fr .94fr;
+  position: relative; border-radius: 8px;
+}
+.assurance li { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 22px 12px; font-size: 0.88rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: var(--cream); line-height: 1.3; text-align: left; }
+.assurance li + li { border-left: 1px solid rgba(255,196,0,.16); }
+.assurance svg { width: 36px; height: 36px; fill: none; stroke: var(--yellow); flex-shrink: 0; }
+
+/* ---------------------------------------------------------- FAQ ---------------------------------------------------------- */
+.faq { padding: 15px 0 0; }
+.faq__panel {
+  position: relative; border-radius: 8px;
+  padding: 10px; display: grid; grid-template-columns: 332px 1fr; gap: 20px; align-items: center;
+}
+.faq__intro, .faq__list { position: relative; z-index: 2; }
+.faq__intro { padding-left: 24px; }
+.faq__title { font-size: clamp(1.7rem, 2.3vw, 2.3rem); line-height: 1.02; }
+.faq__intro .section-sub { font-size: 0.8rem; margin-top: 10px; max-width: 176px; line-height: 1.4; }
+/* fluxo em coluna: a coluna da esquerda recebe as 3 primeiras perguntas,
+   como no target (row-major deixava 1-3-5 à esquerda) */
+.faq__list { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; gap: 5px 24px; align-content: start; }
+.faq-item { background: #131419; border: 1px solid rgba(255,255,255,.07); border-radius: 6px; overflow: hidden; transition: border-color .2s; }
+.faq-item.is-open { border-color: rgba(255,196,0,.4); }
+.faq-item__q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px; text-align: left; padding: 9px 18px; font-size: 0.92rem; font-weight: 500; color: #d9d4c7; line-height: 1.45; }
+.faq-item__q svg { width: 18px; height: 18px; fill: none; stroke: var(--yellow); flex-shrink: 0; transition: transform .3s; }
+.faq-item.is-open .faq-item__q svg { transform: rotate(180deg); }
+.faq-item__a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.faq-item__a p { padding: 0 18px 14px; font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* ---------------------------------------------------------- CTA FINAL ----------------------------------------------------------
+   O asset oficial (cinepipoqueira-cta-final-bg-desktop) é 1672×941 e não cabe
+   por crop simples numa faixa de ~8:1. Foi derivada dele a banda horizontal
+   y 370–650 — projetor, leque de luz e topo do balde — reduzida 18% na
+   vertical. Nada do mockup foi rasterizado: texto e botão são HTML. */
+.final-cta { padding: 13px 0 14px; }
+.final-cta__box {
+  position: relative; overflow: hidden; border-radius: 8px;
+  border: 1px solid rgba(255,196,0,.26);
+  min-height: 178px; padding: 14px 30px 12px; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+}
+.final-cta__bg {
+  position: absolute; inset: 0;
+  background: url("../images/cinepipoqueira-cta-final-bg-desktop.webp") 50% 46% / cover no-repeat;
+}
+.final-cta__scrim {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 40% 128% at 50% 50%, rgba(2,10,5,.68), rgba(2,10,5,.28) 60%, rgba(2,10,5,0) 86%),
+    linear-gradient(90deg, rgba(0,0,0,.24) 0, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,.30) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.28));
+}
+.final-cta__content { position: relative; z-index: 1; }
+.final-cta__title { font-size: clamp(1.6rem, 2.3vw, 2.2rem); color: var(--cream); }
+.final-cta__sub { margin: 6px auto 0; max-width: 660px; font-size: 0.95rem; color: #cfc9bb; }
+.final-cta__btn { margin-top: 11px; --btn-py: 11px; --btn-px: 54px; font-size: 1.02rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; border-radius: 6px; background: #0f7b45; box-shadow: none; }
+.final-cta__btn:hover { background: var(--green-light); box-shadow: 0 10px 28px rgb(1 99 55 / 50%); }
+.final-cta__note { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; font-size: 0.84rem; color: #cfc9bb; }
+.final-cta__note svg { width: 17px; height: 17px; fill: none; stroke: var(--green-neon); flex-shrink: 0; }
+/* M5.1 — o telefone quebrava entre o prefixo e os quatro ultimos digitos
+   ("+55 44 9147-" / "4545"), o que le como erro de formatacao e nao como
+   quebra de linha. Mantido inteiro, a quebra cai no espaco que vem antes
+   dele: a frase fica em cima e o numero embaixo. A frase inteira esta num
+   unico <span> justamente para que o flex do desktop continue com dois
+   itens (icone + texto) e nao ganhe um terceiro gap de 8px. */
+.nowrap { white-space: nowrap; }
+
+/* ---------------------------------------------------------- RODAPÉ ---------------------------------------------------------- */
+.site-footer { background: #050505; border-top: 1px solid rgba(255,196,0,.38); padding: 20px 0 14px; }
+.site-footer__inner { display: flex; align-items: center; gap: 44px; }
+.brand--footer { flex-shrink: 0; }
+.brand--footer img { height: 62px; width: auto; }
+.footer__domain { font-size: 0.92rem; color: var(--muted); white-space: nowrap; }
+.footer__nav { display: flex; align-items: center; margin-inline: auto; }
+.footer__nav a { font-size: 0.92rem; color: var(--text); transition: color .2s; white-space: nowrap; }
+.footer__nav a:hover { color: var(--yellow); }
+.footer__nav a + a::before { content: "\2022"; color: var(--yellow); padding: 0 20px; font-size: .8em; }
+.footer__wa-block { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.footer__wa-icon { width: 38px; height: 38px; border-radius: 50%; border: 1.6px solid var(--yellow); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s; }
+.footer__wa-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--yellow); }
+.footer__wa-block:hover .footer__wa-icon { background: rgba(255,196,0,.12); }
+.footer__wa-text { font-size: 0.88rem; color: var(--text); line-height: 1.35; }
+/* linha legal enxuta: mantém © e os links das páginas que existem no projeto
+   (o target não os mostra, mas removê-los seria perder navegação real) */
+.site-footer__legal { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.05); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.site-footer__legal p { font-size: 0.74rem; line-height: 1.5; color: #6e6a60; }
+.footer__legal-links { display: flex; align-items: center; gap: 18px; }
+.footer__legal-links a { font-size: 0.74rem; line-height: 1.5; color: #6e6a60; display: flex; align-items: center; transition: color .2s; }
+.footer__legal-links a:hover { color: var(--yellow); }
+.footer__legal-links svg { width: 15px; height: 15px; fill: #6e6a60; transition: fill .2s; }
+.footer__legal-links a:hover svg { fill: var(--yellow); }
+
+/* ============================================================ CTA FIXO (mobile) ============================================================ */
+.sticky-cta {
+  display: none; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 95;
+  align-items: center; justify-content: center; gap: 10px;
+  padding: 16px; border-radius: var(--radius-md); font-weight: 700; font-size: 1rem;
+  background: var(--green); color: var(--white); box-shadow: 0 -6px 24px rgb(0 0 0 / 45%), var(--glow-green);
+}
+.sticky-cta.is-hidden { transform: translateY(140%); }
+.sticky-cta { transition: transform .3s ease; }
+
+/* ============================================================ REVEAL ============================================================ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .poster-row { scroll-behavior: auto; }
+}
+
+/* ============================================================ RESPONSIVO ============================================================ */
+
+/* ---------- M5 — PLANOS: QUANDO A COMPOSIÇÃO DE DUAS COLUNAS CABE ----------
+   A .plans__row aprovada reserva uma coluna FIXA de 396px para o título e
+   deixa o resto para os quatro cards. Isso foi desenhado para a faixa cheia
+   (1504px de .d4__inner, em 1672px de viewport), onde sobram 1068px e cada
+   card fica com 252px. Abaixo disso a conta não fecha sozinha: a 1500px cada
+   card cairia para 214px e o badge do Anual (195px) já não caberia numa
+   linha; a 1025px cairiam para 106px. O ponto em que os quatro cards voltam
+   a ter os ~230px de que a tipografia de desktop precisa é 1580px — que é,
+   não por acaso, onde a faixa atinge sua largura máxima. Até lá o título
+   sobe para cima dos cards, exatamente como já acontecia no mobile, e os
+   quatro cards usam a faixa inteira. Nada disso alcança 1672px. */
+@media (max-width: 1579px) {
+  .plans__row { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ---------- M5 — FAIXA INTERMEDIÁRIA ATÉ 1200px ----------
+   Este bloco era `max-width: 1024px`. O corte em 1024 vinha do tablet
+   retrato, não do layout: entre 1025 e 1200px a composição de desktop entra
+   sem ter largura para ela. Medido: o cabeçalho precisa de 993px de marca +
+   nav + CTA e só tem 974px em 1025px (a marca era comprimida em 54px e o
+   selo PLAY passava por cima de "Início"); o painel do "Como funciona"
+   espremia a intro em 6 linhas e cada passo em 3; e as duas colunas de
+   canais/competições se sobrepunham. Todas as regras abaixo já estavam
+   aprovadas para 861–1024 — o que muda é até onde elas valem. */
+@media (max-width: 1200px) {
+  .trend__arrow--prev { left: -14px; }
+  .trend__arrow--next { right: -14px; }
+
+  /* ---------- M5 — CABEÇALHO COMPACTO ----------
+     Terceiro degrau entre os dois cabeçalhos aprovados, não um cabeçalho
+     novo: marca + CTA + sanduíche. A nav vira o mesmo painel do mobile (a
+     regra é literalmente a mesma, só subiu de breakpoint), o CTA continua no
+     lugar de sempre — então nada de CTA fixo precisa aparecer aqui — e o
+     estouro de até 154px some sem esconder overflow. Abaixo de 861px o CTA
+     sai e o sanduíche encosta na direita, como aprovado na M1. */
+  .site-header__inner { display: flex; align-items: center; gap: 16px; }
+  .header__cta { margin-left: auto; }
+  .nav {
+    position: fixed; inset: var(--header-h) 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--black); border-bottom: 1px solid var(--line); padding: 10px 6vw 22px; margin: 0;
+    transform: translateY(-130%); opacity: 0; pointer-events: none; transition: transform .3s, opacity .3s;
+  }
+  .nav.is-open { transform: none; opacity: 1; pointer-events: auto; }
+  /* M1.1 — com o menu aberto o fundo continuava rolando atrás do painel. O
+     overflow do viewport vem do body (o html está em visible), então é nele
+     que a trava precisa entrar. */
+  body.nav-open { overflow-y: hidden; }
+  .nav a { padding: 15px 4px; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 1rem; }
+  .nav a.is-active::after { display: none; }
+  .nav-toggle { display: flex; margin-left: 0; }
+
+  .poster { flex: 0 0 calc((100% - 72px) / 4); }
+  .hero__title .hl { display: inline; }
+  .hero__title { transform: none; font-size: clamp(2.6rem, 5.9vw, 5rem); }
+  .cat__inner { width: 92%; }
+  .d4__inner { width: 92%; }
+  .hero-trust > .container { width: 92%; }
+  .trend__tabs { margin-right: 0; }
+  /* ---------- M5 — "COMO FUNCIONA" NA FAIXA INTERMEDIÁRIA ----------
+     A regra antiga empilhava intro e passos numa coluna só, herdada do
+     celular. A 960px isso deixava 470x340px de painel vazio à direita dos
+     três passos: o texto de cada passo é curto e, sozinho numa faixa de
+     800px, a metade de cima da chapa lia como layout de celular esticado —
+     ainda por cima logo acima da metade de baixo, que já usava a largura
+     inteira com a moldura à direita. As duas metades passam a ter a mesma
+     lógica: texto à esquerda, conteúdo à direita. Os passos continuam
+     empilhados com o conector vertical da M3; só deixam de ocupar a faixa
+     toda. A proporção 1/1.5 dá 274px de intro a 861px e 334px a 1024px —
+     largura suficiente para o título em duas linhas. */
+  .how__panel { grid-template-columns: 1fr 1.5fr; gap: 30px; }
+  .channels__cols { grid-template-columns: 1fr; gap: 28px; }
+
+  /* M4/M5 — a grade e a quebra do badge passaram para a base (a causa nunca
+     foi do mobile). Aqui fica só a altura do slot: nesta faixa os cards ainda
+     são estreitos o bastante para o badge do Anual ocupar duas linhas, e a
+     altura fixa é o que mantém nome, preço e lista alinhados nos quatro. */
+  .plan__badge-slot { min-height: 31px; }
+
+  /* ---------- M5 — ESCALA DO CARD DE PLANO ----------
+     Era o terceiro sintoma relatado da faixa 861–1024: card estreito com
+     tipografia de desktop e CTAs de alturas diferentes. Medido a 861px, os
+     quatro cards têm 183px — a mesma largura dos cards 2x2 de um celular de
+     430px — mas carregavam nome de 28,5px, preço de 44px e um CTA de .78rem
+     com 0,07em de tracking. "Escolher Trimestral" e "Escolher Semestral"
+     quebravam em duas linhas e os botões ficavam em 40/53/51/40px.
+     A escala compacta que a M4 já tinha validado nessa MESMA largura de card
+     resolve os três de uma vez, e é a mesma regra — apenas deixa de estar
+     presa ao celular. Entre 601 e 860px o card mede 347–390px e o bloco
+     seguinte devolve a escala de desktop, como aprovado. */
+  .plan { padding: 13px 11px 13px; }
+  .plan__badge { font-size: .6rem; padding: 3px 8px; letter-spacing: .03em; }
+  .plan__name { font-size: 1.55rem; }
+  .plan__period { font-size: .76rem; }
+  .plan__price { margin: 9px 2px 9px; padding-top: 10px; }
+  .plan__price .cur { font-size: .8rem; vertical-align: 9px; margin-right: 2px; }
+  .plan__price .int { font-size: 2.4rem; }
+  .plan__price .cents { font-size: 1.05rem; }
+  .plan__list { padding-left: 0; gap: 7px; margin-bottom: 11px; }
+  .plan__list li { font-size: .78rem; gap: 7px; align-items: flex-start; }
+  .plan__list svg { width: 15px; height: 15px; margin-top: 1px; }
+  /* min-height garante área de toque e mantém os quatro botões iguais */
+  .plan__cta { --btn-py: 10px; --btn-px: 2px; min-height: 46px; font-size: .7rem; letter-spacing: .02em; }
+
+  .addon, .assurance { width: 100%; }
+  .faq__panel { grid-template-columns: 1fr; gap: 18px; padding: 18px; }
+  .faq__intro { padding-left: 0; }
+  .faq__list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 8px; }
+  .site-footer__inner { flex-wrap: wrap; gap: 18px 28px; }
+  .footer__nav { margin-inline: 0; flex-wrap: wrap; }
+  .footer__wa-block { margin-left: auto; }
+  .steps { grid-template-columns: 1fr; gap: 30px; }
+
+  /* M3 — causa real do conector solto. A regra anterior mirava
+     `.step:not(:last-child)::after`, um pseudo-elemento que nunca chega a
+     existir: nao ha `content` declarado nem aqui nem na base. Enquanto isso a
+     seta de verdade vem de `.step__link`, que continuava com a geometria do
+     layout horizontal (right: -34px, 28px de largura) e sobrava deitada na
+     borda direita dos passos 1 e 2. Aqui o proprio .step__link vira conector
+     vertical, descendo do circulo do passo ate o proximo.
+     `align-items: start` deixa a geometria deterministica: o circulo comeca
+     sempre em y=0 do passo, entao o conector nunca invade o icone, mesmo se a
+     descricao crescer. O 3o passo nao tem .step__link no HTML, entao nao
+     sobra conector no fim. */
+  .step { align-items: start; }
+  .step__link {
+    top: 94px; left: 42px; right: auto; bottom: -20px;
+    width: 2px; height: auto;
+    background: repeating-linear-gradient(180deg, rgba(255,196,0,.7) 0 7px, transparent 7px 14px);
+  }
+  .step__link::after {
+    left: -4px; right: auto; top: auto; bottom: -8px;
+    border-left: 5px solid transparent; border-right: 5px solid transparent;
+    border-top: 8px solid rgba(255,196,0,.8); border-bottom: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  :root { --header-h: 58px; }
+  section { padding: 60px 0; }
+  .panel { padding: 26px 20px; }
+
+  /* ---------- M1 — hero mobile ----------
+     O hero mobile vinha da arquitetura v1: texto empilhado acima e a imagem
+     inteira abaixo, o que dava 1244px de altura — quase duas telas — contra
+     cerca de uma tela no target. Volta a ser a composicao do desktop aprovado
+     (master v2 ao fundo, texto por cima), com a foto confinada a uma faixa
+     inferior e dissolvida no preto, como no mockup mobile.
+     O master e landscape 1672x941 e tem os 45% da esquerda praticamente pretos
+     (era ali que o texto do desktop ficava). O enquadramento em 88% traz a
+     cena util — abajur, TV, pipoca, tablet e celular — para dentro da faixa. */
+  .hero {
+    --hero-band: clamp(170px, 54vw, 310px);
+    min-height: auto; display: block;
+    padding: 30px 0 var(--hero-band);
+  }
+
+  /* M1.2 — a faixa mostrava o master inteiro (941px de altura) espremido em
+     322px: sobrava o topo preto e a base de sofa, e a cena util ficava pequena
+     dentro de um bloco alto. Agora a faixa enquadra so a cena.
+
+     Medido no proprio master (deteccao de regiao luminosa, L>60): a cena
+     ocupa x 859..1649 e y 150..676 de 1672x941. A janela vai de y 110 a 690
+     — a cena inteira mais uma folga de parede acima da TV, que e onde o
+     degrade do scrim trabalha sem comer a tela, e sem o sofa em primeiro
+     plano que so somava altura. As constantes derivam so de --hero-band:
+       largura da img = 1672 / 580 = 2,883 x faixa   (580 = altura da janela)
+       deslocamento   =  110 / 580 = 0,190 x faixa
+     Como nao dependem da largura do viewport, o enquadramento e identico em
+     375, 390 e 430; muda so a escala. Ancorada a direita, onde esta a cena.
+     Nessa janela a TV cai entre 20% e 78% da altura da faixa.
+
+     A faixa e um container posicionado com overflow hidden: um preview de
+     video sobre a tela da TV entra depois como filho absoluto, sem mexer
+     nesta geometria. */
+  .hero__bg { position: absolute; inset: auto 0 0 0; height: var(--hero-band); overflow: hidden; }
+  .hero__bg img {
+    position: absolute; right: 0; top: calc(var(--hero-band) * -0.190);
+    width: calc(var(--hero-band) * 2.883); height: auto;
+    border-radius: 0;
+  }
+  /* Degrade curto: dissolve a emenda com o preto do texto nos primeiros 18%
+     da faixa, que sao parede, e larga a TV inteira. */
+  .hero__scrim {
+    display: block; inset: auto 0 0 0; height: var(--hero-band);
+    background:
+      linear-gradient(180deg, #050505 0%, rgba(5,5,5,.5) 9%, rgba(5,5,5,.14) 19%, rgba(5,5,5,0) 34%),
+      linear-gradient(0deg, rgba(5,5,5,.42), transparent 26%);
+  }
+  .hero__content { max-width: none; }
+
+  /* O target intercala a nota do WhatsApp entre o botao verde e o "Conhecer os
+     planos". Como a nota e irma de .hero__actions no HTML, dissolvemos o
+     container com display:contents e ordenamos os tres no mesmo fluxo, sem
+     duplicar marcacao nem afetar o desktop. */
+  .hero__content { display: flex; flex-direction: column; }
+  .hero__content > .eyebrow { order: 1; }
+  .hero__content > .hero__title { order: 2; }
+  .hero__content > .hero__sub { order: 3; }
+  .hero__actions { display: contents; }
+  .hero__actions .btn--primary { order: 4; align-self: stretch; margin-top: 30px; }
+  .hero__content > .hero__note { order: 5; margin-top: 16px; }
+  .hero__actions .btn--outline { order: 6; align-self: flex-start; margin-top: 20px; }
+
+  /* A faixa de confianca apoia sobre a base da foto, como no mockup. Com a
+     faixa mais baixa da M1.2 a sobreposicao cai de 46px para 20px: o
+     suficiente para amarrar as duas, sem cobrir a pipoca e os aparelhos. */
+  .hero-trust { margin-top: -26px; }
+
+  /* O target mantem o wordmark e o selo PLAY no mobile; so o CTA sai do
+     cabecalho, dando lugar ao menu sanduiche. */
+  .site-header { border-bottom: 1px solid rgba(255,196,0,.14); }
+  .brand img { height: 40px; }
+  .brand__name { font-size: 1.06rem; }
+  .brand__play { font-size: .72rem; margin-left: 4px; padding: 4px 8px 3px; border-width: 1.2px; }
+  .brand__play svg { width: 10px; height: 10px; }
+
+  .poster { flex: 0 0 44%; }
+  /* M3.1 — fecha a D2 mais perto da nota final (ver bloco da D3 abaixo). */
+  .cat { padding: 40px 0 22px; }
+  .trend__foot { grid-template-columns: 1fr; gap: 12px; }
+  .trend__dots { grid-column: 1; justify-content: flex-start; }
+  .hero__inner { width: 92%; }
+  .btn--wide { --btn-py: 16px; --btn-px: 24px; font-size: 1rem; }
+  .trust-bar li { font-size: 1rem; }
+  .trend__arrow--prev { left: -6px; }
+  .trend__arrow--next { right: -6px; }
+
+  /* M1 — abaixo de 861px o CTA sai do cabeçalho (quem o substitui é o CTA
+     fixo) e o sanduíche assume a direita. O painel da nav e a trava de scroll
+     vêm do bloco de 1200px, que já cobre esta faixa. */
+  .header__cta { display: none; }
+  .nav-toggle { margin-left: auto; }
+
+  /* No target as tres linhas ficam em ~43px cada; com o icone de 44px e o
+     padding do desktop elas passavam de 88px e a faixa sozinha ocupava um
+     terco da tela. */
+  .trust-bar { grid-template-columns: 1fr; gap: 0; padding: 6px 8px; }
+  .trust-bar li { justify-content: flex-start; gap: 14px; padding: 10px 10px; font-size: .97rem; }
+  .trust-bar li + li { border-left: none; border-top: 1px solid rgba(255,255,255,.08); }
+  .trust-bar svg { width: 27px; height: 27px; stroke-width: 2; }
+
+  .cat__head { flex-direction: column; align-items: flex-start; }
+  .trend__viewport { grid-template-columns: 1fr; }
+  .trend__arrow { display: none; }
+
+  /* M2 — os sublinhados luminosos das abas sangram 18px (a barra) e 26px (a
+     aba ativa) para fora do proprio bloco. No desktop o sangramento cai
+     dentro da faixa, porque as abas tem margin-right: 33%; no mobile elas
+     ficam rentes a borda direita e o excedente saia do viewport, o que
+     sozinho mantinha o scrollWidth 2px acima do clientWidth. Aparado so a
+     direita: o brilho e o degrade continuam iguais. */
+  .trend__tabs::after { right: 0; }
+  .trend__tab.is-active::after { right: -12px; }
+
+  /* M2 — a causa do overflow horizontal da pagina inteira estava aqui. Em
+     `1fr` o minimo automatico da trilha e o min-content do item, e o
+     min-content de um tile e a largura intrinseca da logo. As logos das
+     competicoes sao largas, entao as trilhas inflavam: a .tile-grid--comp
+     media 169,5+169,5+14 = 353px dentro de uma caixa de 309px, e os 44px
+     excedentes empurravam o scrollWidth do documento para 394 num viewport
+     de 390. minmax(0, 1fr) devolve a trilha ao tamanho da caixa; a logo
+     acompanha por max-width, sem distorcer (so tem restricoes de maximo). */
+  .tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile-grid--comp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .channels__block { padding: 12px 14px 15px; }
+
+  .devices__top { grid-template-columns: 1fr; gap: 18px; }
+  .devices__foot { flex-direction: column; align-items: stretch; }
+  .devices__cta { margin-left: 0; justify-content: center; }
+
+  /* M3 — o padding de 40px do desktop tirava 80px dos 359 disponiveis e
+     esmagava a moldura. */
+  .how__panel, .devices__panel { padding: 24px 16px; }
+  /* M5 — no celular a intro continua ACIMA dos passos, como aprovado na M3;
+     a composição em duas colunas vale só da faixa intermediária para cima. */
+  .how__panel { grid-template-columns: 1fr; gap: 26px; }
+
+  /* M3.1 — o vao entre a nota final da D2 e o eyebrow da D3 media 167px no
+     mobile contra 169px no desktop: a mesma altura absoluta, pensada para
+     1672px de largura, aplicada a 390px, onde le como seccao vazia. As tres
+     parcelas sao .cat padding-bottom (44), .how padding-top (78, regra base
+     sem override no mobile — a maior delas) e .how__panel padding-top (44+1).
+     Aqui as tres caem para 22 + 26 + 31 = 79px, ainda uma pausa clara entre
+     capitulos, mas sem parecer secao vazia. Desktop intocado. */
+  .how { padding-top: 26px; }
+  .how__panel {
+    padding-top: 30px;
+    /* a rampa da mascara precisa terminar ANTES do padding-top, senao ela
+       atenua o proprio eyebrow — com 44px de padding a rampa de 50px ja
+       mordia os primeiros 5px do conteudo */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.6) 11px, #000 24px);
+    mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,.6) 11px, #000 24px);
+  }
+
+  /* M3 — recortes da moldura mobile, medidos no canal alfa do asset ja
+     aparado (1202x813) pelo mesmo metodo usado na D3 desktop: flood fill do
+     fundo externo e componentes conexos do que sobra de transparente. Os
+     retangulos entram com ~0,5pp de folga em cada lado — a moldura tem
+     z-index 2 sobre a tela, entao sobra coberta e melhor que falta, que
+     deixaria passar fundo pelo buraco. As proporcoes de cada tela batem com
+     as da moldura desktop (TV 1,78 contra 1,81; notebook 1,59 contra 1,60),
+     por isso os mesmos data-count continuam validos. */
+  .dv__screen--tv     { left: 7.97%;  top: 2.44%;  width: 82.90%; height: 68.87%; }
+  .dv__screen--tablet { left: 6.15%;  top: 40.22%; width: 25.26%; height: 49.20%; }
+  .dv__screen--phone  { left: 0.93%;  top: 56.43%; width: 12.21%; height: 39.18%; }
+  .dv__screen--laptop { left: 56.49%; top: 50.25%; width: 38.82%; height: 36.09%; }
+
+  /* Chips em duas colunas: em flex eles viravam uma coluna de barras de
+     200px. O ultimo ocupa a linha inteira para nao sobrar buraco. */
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .chip { max-width: none; padding: 11px 12px; gap: 9px; font-size: .8rem; letter-spacing: .2px; }
+  .chip:last-child { grid-column: 1 / -1; }
+  .chip svg { width: 21px; height: 21px; }
+  .devices__cta { --btn-py: 15px; --btn-px: 20px; font-size: .95rem; }
+
+  /* Faixa de atendimento empilhada: em linha os dois horarios quebravam no
+     meio da frase. Horarios e textos inalterados. */
+  .hours { flex-direction: column; align-items: stretch; gap: 0; padding: 6px 12px; }
+  .hours li { justify-content: flex-start; flex: 0 0 auto; padding: 12px 4px; font-size: .84rem; gap: 12px; }
+  .hours li + li { border-left: 0; border-top: 1px solid rgba(255,255,255,.1); }
+  .hours svg { width: 24px; height: 24px; }
+
+  /* ---------- M4 — PLANOS EM 2x2 ----------
+     O mobile mostrava um seletor de 4 chips mais o detalhe de UM plano por
+     vez, e os tres defeitos relatados nasciam todos ai: `.ps-name` e
+     `.ps-price` sao spans inline, entao nome e preco encostavam
+     ("MENSALR$ 27,90"); o badge do Anual quebrava em duas linhas e deixava a
+     segunda fileira de chips 14px mais alta que a primeira; e comparar os
+     quatro planos exigia quatro toques, porque condicoes e CTA so existiam no
+     plano selecionado.
+     A grade real cabe em duas colunas ate 360px, entao ela mesma passa a ser
+     a comparacao: os quatro planos ficam visiveis com preco, condicoes e CTA.
+     O seletor sai de cena — mante-lo junto seria repetir nome e preco duas
+     vezes na mesma tela. Nenhum HTML novo: sao os mesmos quatro <article>.
+     Efeito colateral bem-vindo: os botoes do seletor deixam de ser focaveis
+     dentro de um container `aria-hidden="true"`, como ja acontecia no
+     desktop. */
+  /* mesma leitura do M3.1: os 58px de topo da .plans somados aos 44px de base
+     da .devices deixavam 106px de campo vazio entre a faixa de atendimento e
+     o eyebrow dos planos — pausa de capitulo pensada para 1672px de largura.
+     Aqui so a parcela da D4 cai; a .devices nao e tocada. */
+  .plans { padding-top: 34px; }
+
+  .plan-select { display: none; }
+  .plans__row { gap: 18px; }
+  .plans__sub { margin-top: 14px; }
+
+  /* `grid-auto-rows: 1fr` iguala as DUAS fileiras: sem ele o par
+     Semestral/Anual fica mais alto que o par Mensal/Trimestral, porque a
+     condicao de pagamento deles ocupa duas linhas. */
+  .plans__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 12px; }
+
+  /* M5 — a escala compacta do card (padding, nome, preço, lista, CTA) subiu
+     para o bloco de 1200px: quem a pede não é o celular, é a largura do card.
+     Aqui fica só o que é específico do 2x2 estreito. */
+  .plan__badge-slot { min-height: 30px; margin-bottom: 3px; }
+
+  /* Barra da tela adicional: o <b> era inline com margin-right, entao titulo e
+     complemento se misturavam em tres linhas ao redor do chevron. Em duas
+     linhas proprias a hierarquia volta e o icone deixa de disputar espaco. */
+  .addon__toggle { padding: 12px 14px; gap: 12px; }
+  .addon__title { font-size: .8rem; }
+  .addon__title b { display: block; margin-right: 0; margin-bottom: 2px; font-size: .84rem; }
+  .addon__chev { width: 22px; height: 22px; }
+  .addon__panel { padding: 12px 0 2px; }
+  .addon__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .addon__note { font-size: .76rem; text-align: left; }
+
+  .assurance { grid-template-columns: 1fr; }
+  .assurance li { justify-content: flex-start; padding: 14px 18px; }
+  .assurance li + li { border-left: none; border-top: 1px solid rgba(255,196,0,.14); }
+
+  /* FAQ: as perguntas de uma linha mediam 39px de altura, abaixo do minimo de
+     toque. Padding maior + min-height resolvem sem mexer no accordion. */
+  .faq__panel { padding: 16px 14px; }
+  .faq-item__q { padding: 12px 14px; min-height: 48px; font-size: .88rem; gap: 12px; }
+  .faq-item__a p { padding: 0 14px 14px; font-size: .86rem; }
+
+  /* CTA final: com --btn-px de 54px o rotulo quebrava em duas linhas dentro de
+     um botao estreito. Em largura total ele cabe numa linha, ganha area de
+     toque e a faixa encolhe. Asset e composicao inalterados. */
+  .final-cta__box { min-height: 0; padding: 20px 16px 18px; }
+  .final-cta__content { width: 100%; }
+  .final-cta__title { font-size: 1.5rem; }
+  .final-cta__sub { font-size: .88rem; margin-top: 8px; }
+  .final-cta__btn { display: flex; width: 100%; --btn-px: 16px; --btn-py: 14px; font-size: .95rem; margin-top: 14px; }
+  /* em flex o icone virava uma linha so para ele, com o telefone quebrando
+     embaixo. Solto no fluxo do paragrafo ele volta a acompanhar a frase. */
+  .final-cta__note { display: block; font-size: .78rem; margin-top: 10px; text-align: center; }
+  .final-cta__note svg { display: inline-block; vertical-align: -3px; margin-right: 6px; }
+
+  /* Rodape empilhado: `margin-left: auto` no bloco do WhatsApp jogava ele para
+     a direita e deixava metade da linha vazia. Em coluna a ordem fica
+     logo -> dominio -> navegacao -> atendimento. */
+  .site-footer { padding: 22px 0 16px; }
+  .site-footer__inner { flex-direction: column; align-items: flex-start; flex-wrap: nowrap; gap: 14px; }
+  .brand--footer img { height: 52px; }
+  .footer__nav { margin-inline: 0; flex-wrap: wrap; }
+  .footer__nav a + a::before { padding: 0 12px; }
+  .footer__wa-block { margin-left: 0; }
+  .site-footer__legal { flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 16px; padding-top: 12px; }
+  /* os dois icones sociais mediam 15x15 de area clicavel */
+  .footer__legal-links { flex-wrap: wrap; gap: 0 6px; }
+  .footer__legal-links a { min-height: 40px; padding-right: 10px; }
+  .footer__legal-links a[data-social] { min-width: 40px; justify-content: center; padding-right: 0; }
+  .footer__legal-links svg { width: 18px; height: 18px; }
+
+  .sticky-cta { display: flex; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* M2 — faixa intermediaria. O `flex: 0 0 44%` e as 2 colunas de tiles foram
+   desenhados para celular, mas valiam ate 860px: a 768 o poster ia a 309x464
+   e o tile a 131px de altura. Aqui a densidade volta ao natural, sem tocar no
+   desktop (>=861) nem nos celulares (<=600). */
+@media (min-width: 601px) and (max-width: 860px) {
+  .poster { flex: 0 0 30%; }
+  .tile-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tile-grid--comp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  /* M4 — mesma logica: a tipografia dos cards foi apertada para caber em
+     colunas de ~170px no celular, mas a 768px cada card tem 347px e sobra
+     espaco. Aqui os valores voltam aos do desktop, ainda em duas colunas. */
+  .plan { padding: 18px 16px 17px; }
+  .plan__badge { white-space: nowrap; }
+  .plan__badge-slot { min-height: 21px; }
+  .plan__name { font-size: 1.78rem; }
+  .plan__period { font-size: .84rem; }
+  .plan__price .cur { font-size: .92rem; vertical-align: 13px; margin-right: 4px; }
+  .plan__price .int { font-size: 2.75rem; }
+  .plan__price .cents { font-size: 1.25rem; }
+  .plan__list li { font-size: .845rem; align-items: center; }
+  .plan__list svg { width: 18px; height: 18px; margin-top: 0; }
+  .plan__cta { --btn-px: 8px; font-size: .78rem; letter-spacing: .07em; }
+}
+
+@media (max-width: 500px) {
+  /* M2 — minmax(0, ...) pelo mesmo motivo do bloco de 860px. */
+  .tile-grid, .tile-grid--comp { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Em duas colunas o tile fica estreito e o 2.53/1 do desktop achata as
+     logos de competicao, que sao emblemas altos com texto (Libertadores,
+     Champions). Um tile um pouco menos largo devolve altura util a logo sem
+     virar caixa grande. Logos, nomes e cores nao mudam. */
+  .tile-grid--comp .tile { aspect-ratio: 2.05 / 1; }
+  .tile-grid--comp .tile img { max-height: 60px; max-width: 86%; }
+  .plan-select { grid-template-columns: 1fr 1fr; }
+  .hero__title { font-size: clamp(2.4rem, 12vw, 3.4rem); }
+}
+
+/* ============================================================ PÁGINAS LEGAIS ============================================================ */
+.legal-page { padding: 48px 0 72px; min-height: 70vh; }
+.legal-page .container { max-width: 820px; }
+.legal-page h1 { font-family: var(--font-title); font-weight: 400; text-transform: uppercase; letter-spacing: .5px; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--cream); }
+.legal-page .updated { color: var(--muted); font-size: .85rem; margin: 6px 0 30px; }
+.legal-page h2 { font-size: 1.15rem; color: var(--yellow); margin: 30px 0 10px; }
+.legal-page p, .legal-page li { font-size: .95rem; color: var(--muted); margin-bottom: 12px; }
+.legal-page ul { list-style: disc; padding-left: 22px; }
+.legal-page a { color: var(--yellow); }
