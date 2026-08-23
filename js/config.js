@@ -1,5 +1,5 @@
 /* ============================================================
-   CONFIGURAÇÃO DO SITE — CinePipoqueira
+   CONFIGURAÇÃO DO SITE — Playcineip
    ------------------------------------------------------------
    Edite APENAS este arquivo para atualizar:
    - Número do WhatsApp
@@ -18,13 +18,13 @@ const SITE_CONFIG = {
   whatsapp: {
     number: "5511966957972",
 
-    // Mensagem padrão / teste de 3 horas (CTAs principais do hero, header, CTA final)
+    // Mensagem padrão / teste de 6 horas (CTAs principais do hero, header, CTA final)
     defaultMessage:
-      "Olá! Vim pelo site da CinePipoqueira e quero solicitar meu teste de 3 horas.",
+      "Olá! Vim pelo site da CinePipoqueira e quero solicitar meu teste de 6 horas.",
 
     // Mensagem do botão de teste gratuito
     trialMessage:
-      "Olá! Vim pelo Instagram playcineiptv e quero solicitar meu teste de 3 horas.",
+      "Olá! Vim pelo Instagram playcineip e quero solicitar meu teste de 6 horas.",
 
     // Mensagem do botão de compatibilidade ("Confirmar meu aparelho")
     deviceMessage:
@@ -52,12 +52,12 @@ const SITE_CONFIG = {
   /* ---------- REDES SOCIAIS ---------- */
   /* Redes sociais oficiais (Fonte 4). Instagram principal e Cine2
      estão confirmados. Facebook, TikTok e YouTube têm apenas o
-     nome de usuário "cinepipoqueira" confirmado — os links
+     nome de usuário "playcineip" confirmado — os links
      completos ficam "a definir"; adicione-os aqui quando forem
      confirmados e crie o ícone correspondente no rodapé. */
   social: {
-    instagram: "https://www.instagram.com/playcineiptv/",
-    instagram2: "https://www.instagram.com/playcineiptv/"
+    instagram: "https://www.instagram.com/playcineip/",
+    instagram2: "https://www.instagram.com/playcineip/"
   },
 
   /* ---------- FERRAMENTAS DE ANÁLISE ----------
