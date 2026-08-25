@@ -50,13 +50,13 @@ const SITE_CONFIG = {
   },
 
   /* ---------- REDES SOCIAIS ---------- */
-  /* Redes sociais oficiais (Fonte 4). Instagram principal e Cine2
+  /* Redes sociais oficiais (Fonte 4). Instagram principal e 2
      estão confirmados. Facebook, TikTok e YouTube têm apenas o
-     nome de usuário "playcineip" confirmado — os links
+     nome de usuário "playcine011" "playcineip" confirmado — os links
      completos ficam "a definir"; adicione-os aqui quando forem
      confirmados e crie o ícone correspondente no rodapé. */
   social: {
-    instagram: "https://www.instagram.com/playcineip/",
+    instagram: "https://www.instagram.com/playcine011/",
     instagram2: "https://www.instagram.com/playcineip/"
   },
 
