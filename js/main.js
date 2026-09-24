@@ -1,5 +1,5 @@
 /* ============================================================
-   CINEPIPOQUEIRA — Script principal (Novo Visual v1)
+   PLAYCINE011 — Script principal (Novo Visual v1)
    Configurações editáveis em js/config.js
    ============================================================ */
 (function () {
