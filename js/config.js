@@ -20,11 +20,11 @@ const SITE_CONFIG = {
 
     // Mensagem padrão / teste de 6 horas (CTAs principais do hero, header, CTA final)
     defaultMessage:
-      "Olá! Vim pelo site da CinePipoqueira e quero solicitar meu teste de 6 horas.",
+      "Olá! Vim pelo site da Playcine011 e quero solicitar meu teste de 6 horas.",
 
     // Mensagem do botão de teste gratuito
     trialMessage:
-      "Olá! Vim pelo Instagram playcineip e quero solicitar meu teste de 6 horas.",
+      "Olá! Vim pelo Instagram playcine011 e quero solicitar meu teste de 6 horas.",
 
     // Mensagem do botão de compatibilidade ("Confirmar meu aparelho")
     deviceMessage:
