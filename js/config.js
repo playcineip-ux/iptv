@@ -1,5 +1,5 @@
 /* ============================================================
-   CONFIGURAÇÃO DO SITE — Playcineip
+   CONFIGURAÇÃO DO SITE — Playcine011
    ------------------------------------------------------------
    Edite APENAS este arquivo para atualizar:
    - Número do WhatsApp
