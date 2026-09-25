@@ -1,506 +1,921 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>playcine011 — Dê o play na sua diversão</title>
-  <meta name="description" content="Filmes, séries, canais ao vivo e esportes em uma experiência simples, próxima e feita para você. Teste grátis de 6 horas pelo WhatsApp. Dê o play na sua diversão.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#050505">
-  <link rel="canonical" href="https://playcine011.com.br/">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playcine011 — Dê o play na sua diversão</title>
+    <meta name="description" content="Filmes, séries, canais ao vivo e esportes em uma experiência simples, próxima e feita para você. Teste grátis de 6 horas pelo WhatsApp. Dê o play na sua diversão.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050505">
+    <link rel="canonical" href="https://playcine011.com.br/">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="playcine011">
-  <meta property="og:url" content="https://playcine011.com.br/">
-  <meta property="og:title" content="playcine — Dê o play na sua diversão">
-  <meta property="og:description" content="Filmes, séries, canais e esportes em uma experiência simples, próxima e feita para você. Teste grátis de 6 horas pelo WhatsApp.">
-  <meta property="og:image" content="images/og-image.png">
-  <meta property="og:locale" content="pt_BR">
-  <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="playcine011">
+    <meta property="og:url" content="https://playcine011.com.br/">
+    <meta property="og:title" content="playcine — Dê o play na sua diversão">
+    <meta property="og:description" content="Filmes, séries, canais e esportes em uma experiência simples, próxima e feita para você. Teste grátis de 6 horas pelo WhatsApp.">
+    <meta property="og:image" content="images/og-image.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicon e ícones -->
-  <link rel="icon" type="image/x-icon" href="images/logo-h3.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/logo-h3-32x32.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="images/logo-h3-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="images/logo-h3-512x512.png">
+    <link rel="icon" type="image/x-icon" href="images/logo-h3.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo-h3-32x32.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/logo-h3-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/logo-h3-512x512.png">
 
-  <!-- Fontes: Anton (impacto) + Poppins (interface) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <!-- Pré-carrega o hero. M1: o master v2 aprovado passa a servir também o mobile,
-       adaptado por enquadramento no CSS, então o preload vale para toda largura. -->
-  <link rel="preload" as="image" href="images/playcine-hero-desktop-v2.webp">
+    <link rel="stylesheet" href="css/style.css">
 
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Dados estruturados: organização -->
-  <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Playcineip",
-        "slogan": "Dê o play na sua diversão.",
-        "description": "Plataforma de entretenimento com filmes, séries, canais ao vivo e esportes. Teste grátis de 6 horas pelo WhatsApp.",
-        "url": "https://playcine011.com.br/",
-        "logo": "https://playcine.com.br/assets/img/og-image.png",
-        "sameAs": [
-          "https://www.instagram.com/playcine011/",
-          "https://www.instagram.com/playcineip/"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
-          "telephone": "+5566957972",
-          "availableLanguage": ["Portuguese"]
+    <style>
+        .pix-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-      }
-  </script>
 
-  <!-- Dados estruturados: FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Como funciona o teste de 6 horas?", "acceptedAnswer": { "@type": "Answer", "text": "Você solicita pelo WhatsApp, informa o aparelho que vai usar e recebe o acesso. O teste dura 6 horas a partir da liberação, sem burocracia." } },
-      { "@type": "Question", "name": "Em quais aparelhos posso assistir?", "acceptedAnswer": { "@type": "Answer", "text": "Há ampla compatibilidade com celulares e tablets Android, TV Box, Android TV, Smart TVs compatíveis e acesso web. Confirme o seu aparelho com o atendimento." } },
-      { "@type": "Question", "name": "Quantas telas estão incluídas?", "acceptedAnswer": { "@type": "Answer", "text": "Cada plano inclui 2 tela, ou seja, 2 acesso simultâneo. É possível contratar uma tela adicional, que cobre todo o período do plano." } },
-      { "@type": "Question", "name": "Como funciona o pagamento?", "acceptedAnswer": { "@type": "Answer", "text": "Todos os planos aceitam Pix. O Semestral aceita cartão em até 3x e o Anual em até 6x. A ativação é iniciada após a confirmação do pagamento." } },
-      { "@type": "Question", "name": "Quando meu acesso é ativado?", "acceptedAnswer": { "@type": "Answer", "text": "A ativação é iniciada assim que o pagamento é confirmado, com orientação pelo WhatsApp." } },
-      { "@type": "Question", "name": "Como funciona o reembolso?", "acceptedAnswer": { "@type": "Answer", "text": "Você pode solicitar o reembolso pelo nosso WhatsApp em até 7 dias após a compra, de forma simples e sem burocracia." } }
-    ]
-  }
-  </script>
+            .pix-modal.is-open {
+                display: flex;
+            }
+
+        .pix-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,.75);
+            backdrop-filter: blur(4px);
+        }
+
+        .pix-modal__box {
+            position: relative;
+            background: #111;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 20px;
+            padding: 32px 28px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-family: 'Poppins',system-ui,sans-serif;
+            box-shadow: 0 30px 80px rgba(0,0,0,.6);
+            animation: pixIn .25s ease;
+        }
+
+        @keyframes pixIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .pix-modal__close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: transparent;
+            border: 0;
+            color: #888;
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+            .pix-modal__close:hover {
+                color: #fff;
+            }
+
+        .pix-modal__title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 6px;
+        }
+
+        .pix-modal__plan {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 15px;
+            margin: 0 0 18px;
+        }
+
+        .pix-modal__qr {
+            background: #fff;
+            padding: 12px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+            .pix-modal__qr img {
+                display: block;
+                width: 220px;
+                height: 220px;
+            }
+
+        .pix-modal__label {
+            font-size: 12px;
+            color: #888;
+            margin: 0 0 6px;
+            text-align: left;
+        }
+
+        .pix-modal__code {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+            .pix-modal__code input {
+                flex: 1;
+                background: #1a1a1a;
+                color: #ddd;
+                border: 1px solid #333;
+                border-radius: 10px;
+                padding: 10px 12px;
+                font-size: 12px;
+                font-family: monospace;
+            }
+
+        .pix-modal__copy {
+            background: #22c55e;
+            color: #000;
+            border: 0;
+            border-radius: 10px;
+            padding: 0 14px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+            .pix-modal__copy:hover {
+                background: #16a34a;
+            }
+
+        .pix-modal__wa {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+            .pix-modal__wa:hover {
+                background: #1ebe57;
+            }
+
+        .pix-modal__hint {
+            font-size: 11px;
+            color: #666;
+            margin-top: 12px;
+        }
+
+        /* ===== NOVO: Pré-modal de nome (mesmo estilo) ===== */
+        .name-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000; /* acima do modal Pix */
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+            .name-modal.is-open {
+                display: flex;
+            }
+
+        .name-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,.75);
+            backdrop-filter: blur(4px);
+        }
+
+        .name-modal__box {
+            position: relative;
+            background: #111;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 20px;
+            padding: 32px 28px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-family: 'Poppins',system-ui,sans-serif;
+            box-shadow: 0 30px 80px rgba(0,0,0,.6);
+            animation: pixIn .25s ease;
+        }
+
+        .name-modal__close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: transparent;
+            border: 0;
+            color: #888;
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+            .name-modal__close:hover {
+                color: #fff;
+            }
+
+        .name-modal__title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 6px;
+        }
+
+        .name-modal__plan {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 15px;
+            margin: 0 0 18px;
+        }
+
+        .name-modal__label {
+            font-size: 12px;
+            color: #888;
+            margin: 0 0 6px;
+            text-align: left;
+        }
+
+        .name-modal__input {
+            width: 100%;
+            background: #1a1a1a;
+            color: #ddd;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 14px;
+            font-family: 'Poppins', system-ui, sans-serif;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color .2s ease;
+            box-sizing: border-box;
+        }
+
+            .name-modal__input:focus {
+                border-color: #22c55e;
+            }
+
+            .name-modal__input::placeholder {
+                color: #555;
+            }
+
+        .name-modal__btn {
+            display: block;
+            width: 100%;
+            background: #22c55e;
+            color: #000;
+            border: 0;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: 'Poppins', system-ui, sans-serif;
+            transition: background .2s ease;
+        }
+
+            .name-modal__btn:hover {
+                background: #16a34a;
+            }
+
+            .name-modal__btn:disabled {
+                background: #333;
+                color: #666;
+                cursor: not-allowed;
+            }
+
+        .name-modal__hint {
+            font-size: 11px;
+            color: #666;
+            margin-top: 12px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ============================================================ CABEÇALHO ============================================================ -->
-  <header class="site-header" id="header">
-    <div class="container container--xl site-header__inner">
-      <a href="#inicio" class="brand" aria-label="Playcine011 Play — início">
-        <img src="images/logo-h3.png" width="349" height="380" alt="Playcine011">
-        <span class="brand__name">PLAY<span>CINE011</span></span>
-        <span class="brand__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>Play</span>
-      </a>
-
-      <nav class="nav" id="nav" aria-label="Menu principal">
-        <a href="#inicio" class="is-active">Início</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#planos">Planos</a>
-        <a href="#duvidas">Dúvidas</a>
-      </nav>
-
-      <a class="btn btn--primary header__cta" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="header" href="#">Teste grátis — 6 horas</a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
-        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
-        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
-      </button>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ============================================================ HERO ============================================================ -->
-    <section class="hero" id="inicio">
-      <picture class="hero__bg">
-        <img src="images/playcine-hero-desktop-v2.webp" width="1672" height="941" alt="Sala de cinema em casa com filmes, séries e esportes na tela" fetchpriority="high">
-      </picture>
-      <div class="hero__scrim" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <p class="eyebrow">Entretenimento do seu jeito</p>
-          <h1 class="hero__title">Dê o play na <span class="hl">sua diversão.</span></h1>
-          <p class="hero__sub">Filmes, séries, canais e esportes em uma experiência simples, próxima e feita para você.</p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary btn--wide" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="hero" href="#">
-              <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-              Quero testar por 6 horas
+    <header class="site-header" id="header">
+        <div class="container container--xl site-header__inner">
+            <a href="#inicio" class="brand" aria-label="Playcine011 Play — início">
+                <img src="images/logo-h3.png" width="349" height="380" alt="Playcine011">
+                <span class="brand__name">PLAY<span>CINE011</span></span>
+                <span class="brand__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>Play</span>
             </a>
-            <a class="btn btn--outline btn--lg" href="#planos" data-ev="plans" data-loc="hero">
-              Conhecer os planos
-              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+
+            <nav class="nav" id="nav" aria-label="Menu principal">
+                <a href="#inicio" class="is-active">Início</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#planos">Planos</a>
+                <a href="#duvidas">Dúvidas</a>
+            </nav>
+
+            <a class="btn btn--primary header__cta" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="header" href="#">Teste grátis — 6 horas</a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+                <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <picture class="hero__bg">
+                <img src="images/playcine-hero-desktop-v2.webp" width="1672" height="941" alt="Sala de cinema em casa com filmes, séries e esportes na tela" fetchpriority="high">
+            </picture>
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="container hero__inner">
+                <div class="hero__content">
+                    <p class="eyebrow">Entretenimento do seu jeito</p>
+                    <h1 class="hero__title">Dê o play na <span class="hl">sua diversão.</span></h1>
+                    <p class="hero__sub">Filmes, séries, canais e esportes em uma experiência simples, próxima e feita para você.</p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--primary btn--wide" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="hero" href="#">
+                            <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+                            Quero testar por 6 horas
+                        </a>
+                        <a class="btn btn--outline btn--lg" href="#planos" data-ev="plans" data-loc="hero">
+                            Conhecer os planos
+                            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+                        </a>
+                    </div>
+                    <p class="hero__note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg>
+                        Solicitação e liberação pelo WhatsApp.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="hero-trust">
+            <div class="container container--xl">
+                <ul class="trust-bar">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M12 6.4V12l3.9 2.3"></path></svg> Teste gratuito de 6 horas</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.6" y="4.2" width="14.6" height="10.4" rx="1.4"></rect><path d="M12.4 18.6h5.6"></path><path d="M15.2 14.6v4"></path><rect x="1.8" y="10.6" width="6" height="9.4" rx="1.3"></rect><path d="M4.1 17.8h1.4"></path></svg> Ampla compatibilidade</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg> Atendimento pelo WhatsApp</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="cat" id="conteudos">
+            <div class="cat__bg" aria-hidden="true"></div>
+            <div class="cat__haze" aria-hidden="true"></div>
+
+            <div class="cat__inner">
+                <div class="cat__head">
+                    <div class="cat__heading">
+                        <p class="eyebrow eyebrow--green">Atualizado dinamicamente</p>
+                        <h2 class="section-title cat__title">Em alta agora</h2>
+                        <p class="section-sub">Filmes e séries que estão movimentando o momento.</p>
+                    </div>
+                    <div class="trend__tabs" role="tablist" aria-label="Filmes ou séries">
+                        <button class="trend__tab is-active" role="tab" aria-selected="true" data-tab="movies">Filmes</button>
+                        <button class="trend__tab" role="tab" aria-selected="false" data-tab="series">Séries</button>
+                    </div>
+                </div>
+
+                <div class="trend__viewport">
+                    <button class="trend__arrow trend__arrow--prev" aria-label="Anterior" data-arrow="prev">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                    </button>
+                    <div class="trend__rows">
+                        <div class="poster-row" id="moviesRow" data-pane="movies" role="tabpanel" aria-label="Filmes em alta"></div>
+                        <div class="poster-row" id="seriesRow" data-pane="series" role="tabpanel" aria-label="Séries em alta" hidden=""></div>
+                    </div>
+                    <button class="trend__arrow trend__arrow--next" aria-label="Próximo" data-arrow="next">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+                    </button>
+                </div>
+
+                <div class="trend__foot">
+                    <p class="fineprint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg> Conteúdos em alta. Disponibilidade sob consulta. Dados e imagens: TMDB.</p>
+                    <div class="trend__dots" id="trendDots" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            <div class="cat__divider" aria-hidden="true"></div>
+
+            <div class="cat__inner">
+                <h2 class="section-title channels__title">Canais para todos os momentos</h2>
+                <p class="section-sub">Informação, diversão e grandes emoções em um só lugar.</p>
+            </div>
+        </section>
+
+        <div class="d3">
+            <section class="how" id="como-funciona">
+                <div class="cat__inner">
+                    <div class="how__panel">
+                        <div class="how__intro">
+                            <p class="eyebrow">Simples do começo ao play</p>
+                            <h2 class="section-title how__title">Como funciona</h2>
+                            <p class="section-sub">Você conhece a experiência com orientação pelo WhatsApp.</p>
+                        </div>
+                        <ol class="steps">
+                            <li class="step">
+                                <div class="step__mark"><span class="step__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.94 14.46L2 22l5.66-1.48A10 10 0 1012 2z"></path></svg></span><span class="step__num">1</span></div>
+                                <div class="step__text"><h3>1. Solicite pelo WhatsApp</h3><p>Informe o aparelho que você vai usar.</p></div>
+                                <span class="step__link" aria-hidden="true"></span>
+                            </li>
+                            <li class="step">
+                                <div class="step__mark"><span class="step__icon step__icon--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 1H9v2h6V1zm4.03 6.39l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4a9 9 0 109 9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-1-11h2v6h-2V9z"></path></svg></span><span class="step__num step__num--green">2</span></div>
+                                <div class="step__text"><h3>2. Teste por 6 horas</h3><p>Receba o acesso e conheça a experiência.</p></div>
+                                <span class="step__link" aria-hidden="true"></span>
+                            </li>
+                            <li class="step">
+                                <div class="step__mark"><span class="step__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 0a1 1 0 110 2 1 1 0 010-2zm-1.06 13.5L7.4 12.96l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41L10.94 16.5z"></path></svg></span><span class="step__num">3</span></div>
+                                <div class="step__text"><h3>3. Escolha seu plano</h3><p>Continue com a opção ideal para você.</p></div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section class="devices" id="dispositivos">
+                <div class="cat__inner">
+                    <div class="devices__panel">
+                        <div class="devices__top">
+                            <div class="devices__intro">
+                                <h2 class="section-title devices__title">Diversão em diferentes telas</h2>
+                                <p class="section-sub">A compatibilidade depende do aparelho, sistema e aplicativo. Confirme com nosso atendimento.</p>
+                            </div>
+                            <div class="dv" id="devicesStage">
+                                <div class="dv__screen dv__screen--tv" data-screen="tv" data-count="4"></div>
+                                <div class="dv__screen dv__screen--tablet" data-screen="tablet" data-count="2"></div>
+                                <div class="dv__screen dv__screen--phone" data-screen="phone" data-count="1"></div>
+                                <div class="dv__screen dv__screen--laptop" data-screen="laptop" data-count="3"></div>
+                                <picture class="dv__framewrap">
+                                    <source media="(max-width: 860px)" srcset="images/playcine-dispositivos-frame-mobile.webp" width="1202" height="813">
+                                    <img class="dv__frame" src="images/playcine-dispositivos-frame-desktop.webp" width="1536" height="730" alt="Playcine em celular, tablet, TV Box, Smart TV e notebook" loading="lazy">
+                                </picture>
+                                <img class="dv__fallback" src="images/playcineabstrato.webp" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="devices__foot">
+                            <div class="chips" role="list">
+                                <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></svg> Celular Android</span>
+                                <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H5V6h14v12z"></path></svg> Tablet Android</span>
+                                <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM7 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11 0h-6v-2h6v2z"></path></svg> TV Box e Android TV</span>
+                                <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"></path></svg> Smart TV compatível</span>
+                                <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93A8 8 0 014 12h3v2a2 2 0 002 2v1.93zM17.9 17.39A2 2 0 0016 16h-1v-3a1 1 0 00-1-1H8v-2h2a1 1 0 001-1V7h2a2 2 0 002-2v-.41A8 8 0 0117.9 17.39z"></path></svg> Acesso web</span>
+                            </div>
+                            <a class="btn btn--primary devices__cta" data-wa="" data-wa-msg="device" data-ev="whatsapp" data-loc="compatibilidade" href="#">
+                                Confirmar meu aparelho
+                                <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="hours">
+                        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg> Atendimento todos os dias <b>• 9h às 21h</b></li>
+                        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"></path></svg> Suporte seg a sáb <b>• 9h30 às 18h</b></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="d4">
+
+            <section class="plans" id="planos">
+                <div class="d4__inner">
+                    <div class="plans__row">
+                        <div class="plans__head">
+                            <p class="eyebrow">Escolha como quer dar o play</p>
+                            <h2 class="section-title plans__title">Planos para<br>o seu momento</h2>
+                            <p class="section-sub plans__sub">Todos os planos incluem 2 tela.</p>
+                        </div>
+
+                        <div class="plans__cards">
+                            <div class="plan-select" id="planSelect" aria-hidden="true"></div>
+
+                            <div class="plans__grid" id="plansGrid">
+                                <article class="plan" data-plan="Mensal">
+                                    <div class="plan__badge-slot"></div>
+                                    <h3 class="plan__name">Mensal</h3>
+                                    <p class="plan__period">1 mês</p>
+                                    <p class="plan__price"><span class="cur">R$</span><span class="int">19</span><span class="cents">,90</span></p>
+                                    <ul class="plan__list">
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2.4" transform="rotate(45 12 12)"></rect></svg> Pagamento via Pix</li>
+                                    </ul>
+                                    <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Mensal" data-ev="plan" href="#">Escolher Mensal</a>
+                                </article>
+
+                                <article class="plan" data-plan="Trimestral">
+                                    <div class="plan__badge-slot"></div>
+                                    <h3 class="plan__name">Trimestral</h3>
+                                    <p class="plan__period">3 meses</p>
+                                    <p class="plan__price"><span class="cur">R$</span><span class="int">49</span><span class="cents">,90</span></p>
+                                    <ul class="plan__list">
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2.4" transform="rotate(45 12 12)"></rect></svg> Pagamento via Pix</li>
+                                    </ul>
+                                    <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Trimestral" data-ev="plan" href="#">Escolher Trimestral</a>
+                                </article>
+
+                                <article class="plan plan--recommended" data-plan="Semestral">
+                                    <div class="plan__badge-slot"><span class="plan__badge plan__badge--green">Melhor equilíbrio</span></div>
+                                    <h3 class="plan__name">Semestral</h3>
+                                    <p class="plan__period">6 meses</p>
+                                    <p class="plan__price"><span class="cur">R$</span><span class="int">89</span><span class="cents">,90</span></p>
+                                    <ul class="plan__list">
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.2" width="19.2" height="13.6" rx="2"></rect><path d="M2.4 9.8h19.2"></path><path d="M6 14.6h3.8"></path></svg> Pix ou cartão em até 3x</li>
+                                    </ul>
+                                    <a class="btn btn--primary plan__cta" data-wa="" data-wa-msg="plan" data-plan="Semestral" data-ev="plan" href="#">Escolher Semestral</a>
+                                </article>
+
+                                <article class="plan plan--value" data-plan="Anual">
+                                    <div class="plan__badge-slot"><span class="plan__badge plan__badge--yellow">Maior economia • aprox. 20%</span></div>
+                                    <h3 class="plan__name">Anual</h3>
+                                    <p class="plan__period">12 meses</p>
+                                    <p class="plan__price"><span class="cur">R$</span><span class="int">179</span><span class="cents">,90</span></p>
+                                    <ul class="plan__list">
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.2" width="19.2" height="13.6" rx="2"></rect><path d="M2.4 9.8h19.2"></path><path d="M6 14.6h3.8"></path></svg> Pix ou cartão em até 6x</li>
+                                    </ul>
+                                    <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Anual" data-ev="plan" href="#">Escolher Anual</a>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="addon">
+                        <button class="addon__toggle" id="addonToggle" aria-expanded="false" aria-controls="addonPanel">
+                            <span class="addon__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="4.4" width="13.4" height="9.6" rx="1.5"></rect><path d="M6.4 18h4.8"></path><path d="M8.8 14v4"></path><path d="M18.8 15.2v5.4"></path><path d="M16.1 17.9h5.4"></path></svg></span>
+                            <span class="addon__title"><b>Precisa de uma tela adicional?</b> Consulte os valores para cada período.</span>
+                            <svg class="addon__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg>
+                        </button>
+                        <div class="addon__panel" id="addonPanel" hidden="">
+                            <ul class="addon__list">
+                                <li><span>Mensal</span><b>+ R$ 5,90</b></li>
+                                <li><span>Trimestral</span><b>+ R$ 18,90</b></li>
+                                <li><span>Semestral</span><b>+ R$ 37,90</b></li>
+                                <li><span>Anual</span><b>+ R$ 75,90</b></li>
+                            </ul>
+                            <p class="addon__note">O acréscimo cobre todo o período do plano correspondente. Cada tela adicional equivale a mais 1 acesso simultâneo.</p>
+                        </div>
+                    </div>
+
+                    <ul class="assurance d4-chapa">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M12 6.4V12l3.9 2.3"></path></svg> Teste gratuito de 6 horas</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 13.4v-1.2a7.8 7.8 0 0115.6 0v1.2"></path><rect x="2.4" y="13" width="4.2" height="6.2" rx="1.6"></rect><rect x="17.4" y="13" width="4.2" height="6.2" rx="1.6"></rect><path d="M19.5 19.2v.7a2.3 2.3 0 01-2.3 2.3h-3.4"></path></svg> Atendimento todos os dias • 9h às 21h</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6l7.4 3.1v5.6c0 4.6-3.1 8.6-7.4 9.8-4.3-1.2-7.4-5.2-7.4-9.8V5.7z"></path><path d="M8.7 12.1l2.3 2.3 4.3-4.3"></path></svg> Reembolso em até 7 dias</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="faq" id="duvidas">
+                <div class="d4__inner">
+                    <div class="faq__panel d4-chapa">
+                        <div class="faq__intro">
+                            <h2 class="section-title faq__title">Dúvidas<br>frequentes</h2>
+                            <p class="section-sub">Informação clara antes de você começar.</p>
+                        </div>
+                        <div class="faq__list">
+                            <div class="faq-item">
+                                <button class="faq-item__q" aria-expanded="false" data-faq="teste">Como funciona o teste de 6 horas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+                                <div class="faq-item__a"><p>Você solicita pelo WhatsApp, informa o aparelho que vai usar e recebe o acesso. O teste dura 6 horas a partir da liberação, de forma simples e sem burocracia.</p></div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__q" aria-expanded="false" data-faq="aparelhos">Em quais aparelhos posso assistir?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+                                <div class="faq-item__a"><p>Há ampla compatibilidade com celulares e tablets Android, TV Box, Android TV, Smart TVs compatíveis e acesso web. Existem aplicativos diferentes conforme o aparelho — a equipe indica o ideal para o seu. Confirme o modelo antes de contratar.</p></div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__q" aria-expanded="false" data-faq="telas">Quantas telas estão incluídas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+                                <div class="faq-item__a"><p>Cada plano inclui 2 tela, ou seja, 2 acesso simultâneo. Se quiser assistir em mais de dois aparelho ao mesmo tempo, é possível contratar uma tela adicional, que cobre todo o período do plano (Mensal + R$ 5,90, Trimestral + R$ 18,90, Semestral + R$ 37,90, Anual + R$ 75,90).</p></div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__q" aria-expanded="false" data-faq="pagamento">Como funciona o pagamento?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+                                <div class="faq-item__a"><p>Todos os planos aceitam Pix. O Semestral aceita cartão em até 3x e o Anual em até 6x. O parcelamento não altera o período contratado, e a ativação é iniciada após a confirmação do pagamento.</p></div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__q" aria-expanded="false" data-faq="ativacao">Quando meu acesso é ativado?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+                                <div class="faq-item__a"><p>A ativação é iniciada assim que o pagamento é confirmado. A equipe orienta você pelo WhatsApp sobre o aplicativo e o primeiro acesso.</p></div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__q" aria-expanded="false" data-faq="reembolso">Como funciona o reembolso?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
+                                <div class="faq-item__a"><p>Você pode solicitar o reembolso pelo nosso WhatsApp em até 7 dias após a compra, de forma simples e sem burocracia.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="final-cta">
+                <div class="d4__inner">
+                    <div class="final-cta__box">
+                        <div class="final-cta__bg" aria-hidden="true"></div>
+                        <div class="final-cta__scrim" aria-hidden="true"></div>
+                        <div class="final-cta__content">
+                            <h2 class="section-title final-cta__title">Pronto para dar o play?</h2>
+                            <p class="section-sub final-cta__sub">Solicite seu teste gratuito de 6 horas e conheça a experiência Playcine.</p>
+                            <a class="btn btn--primary final-cta__btn" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="cta_final" href="#">
+                                <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+                                Quero testar por 6 horas
+                            </a>
+                            <p class="final-cta__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg> <span>Atendimento pelo WhatsApp oficial: <span class="nowrap">+5511966957972 </span></span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="d4__inner site-footer__inner">
+            <a href="#inicio" class="brand brand--footer" aria-label="playcine011">
+                <img src="images/logo-h3.png" width="760" height="270" alt="playcine011 Play" loading="lazy">
             </a>
-          </div>
-          <p class="hero__note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg>
-            Solicitação e liberação pelo WhatsApp.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sinais rápidos de confiança -->
-    <div class="hero-trust">
-      <div class="container container--xl">
-        <ul class="trust-bar">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M12 6.4V12l3.9 2.3"></path></svg>
-            Teste gratuito de 6 horas
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.6" y="4.2" width="14.6" height="10.4" rx="1.4"></rect><path d="M12.4 18.6h5.6"></path><path d="M15.2 14.6v4"></path><rect x="1.8" y="10.6" width="6" height="9.4" rx="1.3"></rect><path d="M4.1 17.8h1.4"></path></svg>
-            Ampla compatibilidade
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg>
-            Atendimento pelo WhatsApp
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ============================================================ EM ALTA (TMDB) + CANAIS ============================================================ -->
-    <section class="cat" id="conteudos">
-      <div class="cat__bg" aria-hidden="true"></div>
-      <div class="cat__haze" aria-hidden="true"></div>
-
-      <div class="cat__inner">
-        <div class="cat__head">
-          <div class="cat__heading">
-            <p class="eyebrow eyebrow--green">Atualizado dinamicamente</p>
-            <h2 class="section-title cat__title">Em alta agora</h2>
-            <p class="section-sub">Filmes e séries que estão movimentando o momento.</p>
-          </div>
-          <div class="trend__tabs" role="tablist" aria-label="Filmes ou séries">
-            <button class="trend__tab is-active" role="tab" aria-selected="true" data-tab="movies">Filmes</button>
-            <button class="trend__tab" role="tab" aria-selected="false" data-tab="series">Séries</button>
-          </div>
-        </div>
-
-        <div class="trend__viewport">
-          <button class="trend__arrow trend__arrow--prev" aria-label="Anterior" data-arrow="prev">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
-          </button>
-          <div class="trend__rows">
-            <div class="poster-row" id="moviesRow" data-pane="movies" role="tabpanel" aria-label="Filmes em alta"></div>
-            <div class="poster-row" id="seriesRow" data-pane="series" role="tabpanel" aria-label="Séries em alta" hidden=""></div>
-          </div>
-          <button class="trend__arrow trend__arrow--next" aria-label="Próximo" data-arrow="next">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
-          </button>
-        </div>
-
-        <div class="trend__foot">
-          <p class="fineprint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg> Conteúdos em alta. Disponibilidade sob consulta. Dados e imagens: TMDB.</p>
-          <div class="trend__dots" id="trendDots" aria-hidden="true"></div>
-        </div>
-      </div>
-
-      <div class="cat__divider" aria-hidden="true"></div>
-
-      <div class="cat__inner">
-        <h2 class="section-title channels__title">Canais para todos os momentos</h2>
-        <p class="section-sub">Informação, diversão e grandes emoções em um só lugar.</p>
-
-        
-
-    <!-- ============================================================ D3 — COMO FUNCIONA + DISPOSITIVOS ============================================================
-         Faixa visual única. O wrapper existe só para carregar um campo
-         atmosférico contínuo (.d3::before) sob os dois blocos: sem ele cada
-         seção precisaria da própria camada de fundo, e o encontro das
-         camadas é justamente o que a página lia como "containers empilhados". -->
-    <div class="d3">
-    <section class="how" id="como-funciona">
-      <div class="cat__inner">
-        <div class="how__panel">
-          <div class="how__intro">
-            <p class="eyebrow">Simples do começo ao play</p>
-            <h2 class="section-title how__title">Como funciona</h2>
-            <p class="section-sub">Você conhece a experiência com orientação pelo WhatsApp.</p>
-          </div>
-          <ol class="steps">
-            <li class="step">
-              <div class="step__mark">
-                <span class="step__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.94 14.46L2 22l5.66-1.48A10 10 0 1012 2z"></path></svg></span>
-                <span class="step__num">1</span>
-              </div>
-              <div class="step__text"><h3>1. Solicite pelo WhatsApp</h3><p>Informe o aparelho que você vai usar.</p></div>
-              <span class="step__link" aria-hidden="true"></span>
-            </li>
-            <li class="step">
-              <div class="step__mark">
-                <span class="step__icon step__icon--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 1H9v2h6V1zm4.03 6.39l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4a9 9 0 109 9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-1-11h2v6h-2V9z"></path></svg></span>
-                <span class="step__num step__num--green">2</span>
-              </div>
-              <div class="step__text"><h3>2. Teste por 6 horas</h3><p>Receba o acesso e conheça a experiência.</p></div>
-              <span class="step__link" aria-hidden="true"></span>
-            </li>
-            <li class="step">
-              <div class="step__mark">
-                <span class="step__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 0a1 1 0 110 2 1 1 0 010-2zm-1.06 13.5L7.4 12.96l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41L10.94 16.5z"></path></svg></span>
-                <span class="step__num">3</span>
-              </div>
-              <div class="step__text"><h3>3. Escolha seu plano</h3><p>Continue com a opção ideal para você.</p></div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ DISPOSITIVOS / COMPATIBILIDADE ============================================================ -->
-    <section class="devices" id="dispositivos">
-      <div class="cat__inner">
-        <div class="devices__panel">
-          <div class="devices__top">
-            <div class="devices__intro">
-              <h2 class="section-title devices__title">Diversão em diferentes telas</h2>
-              <p class="section-sub">A compatibilidade depende do aparelho, sistema e aplicativo. Confirme com nosso atendimento.</p>
-            </div>
-
-            <!-- Moldura com telas vazadas; o conteúdo real do TMDB é injetado
-                 atrás dela por js/main.js. Sem catálogo rasterizado no PNG. -->
-            <div class="dv" id="devicesStage">
-              <div class="dv__screen dv__screen--tv" data-screen="tv" data-count="4"></div>
-              <div class="dv__screen dv__screen--tablet" data-screen="tablet" data-count="2"></div>
-              <div class="dv__screen dv__screen--phone" data-screen="phone" data-count="1"></div>
-              <div class="dv__screen dv__screen--laptop" data-screen="laptop" data-count="3"></div>
-              <!-- M3: art direction responsiva do MESMO componente. A moldura
-                   desktop é uma fileira 2,10:1; em tela estreita ela cai para
-                   132px de altura e a tela do celular fica com 27px. Abaixo de
-                   860px entra a moldura mobile (1,48:1), com os mesmos
-                   aparelhos e as mesmas proporções de tela — só rearranjados.
-                   Os recortes têm percentuais próprios no CSS. -->
-              <picture class="dv__framewrap">
-                <source media="(max-width: 860px)" srcset="images/playcine-dispositivos-frame-mobile.webp" width="1202" height="813">
-                <img class="dv__frame" src="images/playcine-dispositivos-frame-desktop.webp" width="1536" height="730" alt="Playcine em celular, tablet, TV Box, Smart TV e notebook" loading="lazy">
-              </picture>
-              <img class="dv__fallback" src="images/playcineabstrato.webp" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy">
-            </div>
-          </div>
-
-          <div class="devices__foot">
-            <div class="chips" role="list">
-              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></svg> Celular Android</span>
-              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H5V6h14v12z"></path></svg> Tablet Android</span>
-              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM7 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11 0h-6v-2h6v2z"></path></svg> TV Box e Android TV</span>
-              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"></path></svg> Smart TV compatível</span>
-              <span class="chip" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93A8 8 0 014 12h3v2a2 2 0 002 2v1.93zM17.9 17.39A2 2 0 0016 16h-1v-3a1 1 0 00-1-1H8v-2h2a1 1 0 001-1V7h2a2 2 0 002-2v-.41A8 8 0 0117.9 17.39z"></path></svg> Acesso web</span>
-            </div>
-            <a class="btn btn--primary devices__cta" data-wa="" data-wa-msg="device" data-ev="whatsapp" data-loc="compatibilidade" href="#">
-              Confirmar meu aparelho
-              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+            <span class="footer__domain">playcine011.com.br</span>
+            <nav class="footer__nav" aria-label="Rodapé">
+                <a href="#inicio">Início</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#planos">Planos</a>
+                <a href="#duvidas">Dúvidas</a>
+            </nav>
+            <a class="footer__wa-block" data-wa="" data-wa-msg="trial" data-ev="whatsapp" data-loc="footer" href="#">
+                <span class="footer__wa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg></span>
+                <span class="footer__wa-text">Atendimento e contratação<br>pelo WhatsApp.</span>
             </a>
-          </div>
         </div>
 
-        <ul class="hours">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg> Atendimento todos os dias <b>• 9h às 21h</b></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"></path></svg> Suporte seg a sáb <b>• 9h30 às 18h</b></li>
-        </ul>
-      </div>
-    </section>
-    </div><!-- /.d3 -->
-
-    <!-- ============================================================ D4 — PLANOS + BENEFÍCIOS + FAQ + CTA ============================================================
-         Wrapper .d4: mesma arquitetura da D3. Um único campo atmosférico
-         (.d4::before) nasce dentro da D3 e perde força para baixo, para que
-         preto/grafite volte a dominar sem linha seca nem faixa intermediária.
-         Todos os blocos usam a faixa .d4__inner — a mesma largura de .cat__inner
-         das seções aprovadas acima. ============================================================ -->
-    <div class="d4">
-
-    <!-- ---------------------------------------------------------- PLANOS ---------------------------------------------------------- -->
-    <section class="plans" id="planos">
-      <div class="d4__inner">
-        <div class="plans__row">
-          <div class="plans__head">
-            <p class="eyebrow">Escolha como quer dar o play</p>
-            <h2 class="section-title plans__title">Planos para<br>o seu momento</h2>
-            <p class="section-sub plans__sub">Todos os planos incluem 2 tela.</p>
-          </div>
-
-          <div class="plans__cards">
-            <!-- Seletor compacto (mobile) -->
-            <div class="plan-select" id="planSelect" aria-hidden="true"></div>
-
-            <div class="plans__grid" id="plansGrid">
-              <article class="plan" data-plan="Mensal">
-                <div class="plan__badge-slot"></div>
-                <h3 class="plan__name">Mensal</h3>
-                <p class="plan__period">1 mês</p>
-                <p class="plan__price"><span class="cur">R$</span><span class="int">19</span><span class="cents">,90</span></p>
-                <ul class="plan__list">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2.4" transform="rotate(45 12 12)"></rect></svg> Pagamento via Pix</li>
-                </ul>
-                <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Mensal" data-ev="plan" href="#">Escolher Mensal</a>
-              </article>
-
-              <article class="plan" data-plan="Trimestral">
-                <div class="plan__badge-slot"></div>
-                <h3 class="plan__name">Trimestral</h3>
-                <p class="plan__period">3 meses</p>
-                <p class="plan__price"><span class="cur">R$</span><span class="int">49</span><span class="cents">,90</span></p>
-                <ul class="plan__list">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2.4" transform="rotate(45 12 12)"></rect></svg> Pagamento via Pix</li>
-                </ul>
-                <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Trimestral" data-ev="plan" href="#">Escolher Trimestral</a>
-              </article>
-
-              <article class="plan plan--recommended" data-plan="Semestral">
-                <div class="plan__badge-slot"><span class="plan__badge plan__badge--green">Melhor equilíbrio</span></div>
-                <h3 class="plan__name">Semestral</h3>
-                <p class="plan__period">6 meses</p>
-                <p class="plan__price"><span class="cur">R$</span><span class="int">89</span><span class="cents">,90</span></p>
-                <ul class="plan__list">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.2" width="19.2" height="13.6" rx="2"></rect><path d="M2.4 9.8h19.2"></path><path d="M6 14.6h3.8"></path></svg> Pix ou cartão em até 3x</li>
-                </ul>
-                <a class="btn btn--primary plan__cta" data-wa="" data-wa-msg="plan" data-plan="Semestral" data-ev="plan" href="#">Escolher Semestral</a>
-              </article>
-
-              <article class="plan plan--value" data-plan="Anual">
-                <div class="plan__badge-slot"><span class="plan__badge plan__badge--yellow">Maior economia • aprox. 20%</span></div>
-                <h3 class="plan__name">Anual</h3>
-                <p class="plan__period">12 meses</p>
-                <p class="plan__price"><span class="cur">R$</span><span class="int">179</span><span class="cents">,90</span></p>
-                <ul class="plan__list">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.6 20.4h6.8"></path><path d="M12 16.8v3.6"></path></svg> 2 tela incluída</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.2" width="19.2" height="13.6" rx="2"></rect><path d="M2.4 9.8h19.2"></path><path d="M6 14.6h3.8"></path></svg> Pix ou cartão em até 6x</li>
-                </ul>
-                <a class="btn btn--outline plan__cta" data-wa="" data-wa-msg="plan" data-plan="Anual" data-ev="plan" href="#">Escolher Anual</a>
-              </article>
+        <div class="d4__inner site-footer__legal">
+            <p>© <span id="year">2026</span> playcine011.  Todos os direitos reservados.</p>
+            <div class="footer__legal-links">
+                <a href="privacidade.html">Privacidade</a>
+                <a href="termos.html">Termos</a>
+                <a href="https://www.instagram.com/playcine011/" data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram @playcine011"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
+                <a href="https://www.instagram.com/playcineip/" data-social="instagram2" target="_blank" rel="noopener" aria-label="Instagram @playcineip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
             </div>
-          </div>
         </div>
+    </footer>
 
-        <!-- Tela adicional (colapsável) -->
-        <div class="addon">
-          <button class="addon__toggle" id="addonToggle" aria-expanded="false" aria-controls="addonPanel">
-            <span class="addon__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="4.4" width="13.4" height="9.6" rx="1.5"></rect><path d="M6.4 18h4.8"></path><path d="M8.8 14v4"></path><path d="M18.8 15.2v5.4"></path><path d="M16.1 17.9h5.4"></path></svg></span>
-            <span class="addon__title"><b>Precisa de uma tela adicional?</b> Consulte os valores para cada período.</span>
-            <svg class="addon__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg>
-          </button>
-          <div class="addon__panel" id="addonPanel" hidden="">
-            <ul class="addon__list">
-              <li><span>Mensal</span><b>+ R$ 5,90</b></li>
-              <li><span>Trimestral</span><b>+ R$ 18,90</b></li>
-              <li><span>Semestral</span><b>+ R$ 37,90</b></li>
-              <li><span>Anual</span><b>+ R$ 75,90</b></li>
-            </ul>
-            <p class="addon__note">O acréscimo cobre todo o período do plano correspondente. Cada tela adicional equivale a mais 1 acesso simultâneo.</p>
-          </div>
+    <a class="sticky-cta" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="sticky" href="#" id="stickyCta">
+        <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+        Teste grátis — 6 horas
+    </a>
+
+    <!-- ===== NOVO: Pré-modal para captura do nome ===== -->
+    <div class="name-modal" id="nameModal" aria-hidden="true">
+        <div class="name-modal__backdrop" data-name-close></div>
+        <div class="name-modal__box" role="dialog" aria-labelledby="nameTitle">
+            <button class="name-modal__close" data-name-close aria-label="Fechar">&times;</button>
+            <h3 class="name-modal__title" id="nameTitle">Antes de continuar</h3>
+            <p class="name-modal__plan" id="namePlan">Plano Mensal — R$ 19,90</p>
+
+            <label class="name-modal__label" for="nameInput">Seu nome:</label>
+            <input class="name-modal__input" type="text" id="nameInput" placeholder="Digite seu nome completo" autocomplete="name" maxlength="80">
+
+            <button class="name-modal__btn" id="nameConfirm">Gerar Pix</button>
+            <p class="name-modal__hint">Usamos seu nome para identificar o pagamento.</p>
         </div>
-
-        <!-- Faixa de confiança -->
-        <ul class="assurance d4-chapa">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M12 6.4V12l3.9 2.3"></path></svg>
-            Teste gratuito de 6 horas
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 13.4v-1.2a7.8 7.8 0 0115.6 0v1.2"></path><rect x="2.4" y="13" width="4.2" height="6.2" rx="1.6"></rect><rect x="17.4" y="13" width="4.2" height="6.2" rx="1.6"></rect><path d="M19.5 19.2v.7a2.3 2.3 0 01-2.3 2.3h-3.4"></path></svg>
-            Atendimento todos os dias • 9h às 21h
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6l7.4 3.1v5.6c0 4.6-3.1 8.6-7.4 9.8-4.3-1.2-7.4-5.2-7.4-9.8V5.7z"></path><path d="M8.7 12.1l2.3 2.3 4.3-4.3"></path></svg>
-            Reembolso em até 7 dias
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ---------------------------------------------------------- FAQ ---------------------------------------------------------- -->
-    <section class="faq" id="duvidas">
-      <div class="d4__inner">
-        <div class="faq__panel d4-chapa">
-          <div class="faq__intro">
-            <h2 class="section-title faq__title">Dúvidas<br>frequentes</h2>
-            <p class="section-sub">Informação clara antes de você começar.</p>
-          </div>
-          <div class="faq__list">
-            <div class="faq-item">
-              <button class="faq-item__q" aria-expanded="false" data-faq="teste">Como funciona o teste de 6 horas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
-              <div class="faq-item__a"><p>Você solicita pelo WhatsApp, informa o aparelho que vai usar e recebe o acesso. O teste dura 6 horas a partir da liberação, de forma simples e sem burocracia.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-item__q" aria-expanded="false" data-faq="aparelhos">Em quais aparelhos posso assistir?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
-              <div class="faq-item__a"><p>Há ampla compatibilidade com celulares e tablets Android, TV Box, Android TV, Smart TVs compatíveis e acesso web. Existem aplicativos diferentes conforme o aparelho — a equipe indica o ideal para o seu. Confirme o modelo antes de contratar.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-item__q" aria-expanded="false" data-faq="telas">Quantas telas estão incluídas?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
-              <div class="faq-item__a"><p>Cada plano inclui 2 tela, ou seja, 2 acesso simultâneo. Se quiser assistir em mais de dois aparelho ao mesmo tempo, é possível contratar uma tela adicional, que cobre todo o período do plano (Mensal + R$ 5,90, Trimestral + R$ 18,90, Semestral + R$ 37,90, Anual + R$ 75,90).</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-item__q" aria-expanded="false" data-faq="pagamento">Como funciona o pagamento?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
-              <div class="faq-item__a"><p>Todos os planos aceitam Pix. O Semestral aceita cartão em até 3x e o Anual em até 6x. O parcelamento não altera o período contratado, e a ativação é iniciada após a confirmação do pagamento.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-item__q" aria-expanded="false" data-faq="ativacao">Quando meu acesso é ativado?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
-              <div class="faq-item__a"><p>A ativação é iniciada assim que o pagamento é confirmado. A equipe orienta você pelo WhatsApp sobre o aplicativo e o primeiro acesso.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-item__q" aria-expanded="false" data-faq="reembolso">Como funciona o reembolso?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg></button>
-              <div class="faq-item__a"><p>Você pode solicitar o reembolso pelo nosso WhatsApp em até 7 dias após a compra, de forma simples e sem burocracia.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------------------------------------------------------- CTA FINAL ---------------------------------------------------------- -->
-    <section class="final-cta">
-      <div class="d4__inner">
-        <div class="final-cta__box">
-          <div class="final-cta__bg" aria-hidden="true"></div>
-          <div class="final-cta__scrim" aria-hidden="true"></div>
-          <div class="final-cta__content">
-            <h2 class="section-title final-cta__title">Pronto para dar o play?</h2>
-            <p class="section-sub final-cta__sub">Solicite seu teste gratuito de 6 horas e conheça a experiência Playcine.</p>
-            <a class="btn btn--primary final-cta__btn" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="cta_final" href="#">
-              <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-              Quero testar por 6 horas
-            </a>
-            <p class="final-cta__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg> <span>Atendimento pelo WhatsApp oficial: <span class="nowrap">+5511966957972 </span></span></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    </div><!-- /.d4 -->
-  </main>
-
-  <!-- ============================================================ RODAPÉ ============================================================ -->
-  <footer class="site-footer">
-    <div class="d4__inner site-footer__inner">
-      <a href="#inicio" class="brand brand--footer" aria-label="playcine011">
-        <img src="images/logo-h3.png" width="760" height="270" alt="playcine011 Play" loading="lazy">
-      </a>
-      <span class="footer__domain">playcine011.com.br</span>
-      <nav class="footer__nav" aria-label="Rodapé">
-        <a href="#inicio">Início</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#planos">Planos</a>
-        <a href="#duvidas">Dúvidas</a>
-      </nav>
-      <a class="footer__wa-block" data-wa="" data-wa-msg="trial" data-ev="whatsapp" data-loc="footer" href="#">
-        <span class="footer__wa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 00-7.9 13.9L2.9 21.1l4.5-1.2A9.2 9.2 0 1012 2.8z"></path><path d="M9 8.6c.3-.1.6 0 .8.3l.7 1.2c.1.3.1.6-.1.8l-.4.4c-.1.2-.2.4 0 .7.4.7 1.1 1.4 1.9 1.8.2.1.5.1.6-.1l.4-.4c.2-.2.5-.3.8-.1l1.2.7c.3.2.4.5.3.8-.2.7-.9 1.2-1.7 1.2-2.5 0-5.2-2.7-5.2-5.2 0-.8.5-1.5 1.2-1.7z"></path></svg></span>
-        <span class="footer__wa-text">Atendimento e contratação<br>pelo WhatsApp.</span>
-      </a>
     </div>
 
-    <div class="d4__inner site-footer__legal">
-      <p>© <span id="year">2026</span> playcine011.  Todos os direitos reservados.</p>
-      <div class="footer__legal-links">
-        <a href="privacidade.html">Privacidade</a>
-        <a href="termos.html">Termos</a>
-        <a href="https://www.instagram.com/playcine011/" data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram @playcine011" title="Instagram @playcine011"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
-        <a href="https://www.instagram.com/playcineip/" data-social="instagram2" target="_blank" rel="noopener" aria-label="Instagram @playcineip" title="Instagram @playcineip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
-      </div>
+    <div class="pix-modal" id="pixModal" aria-hidden="true">
+        <div class="pix-modal__backdrop" data-close></div>
+        <div class="pix-modal__box" role="dialog" aria-labelledby="pixTitle">
+            <button class="pix-modal__close" data-close aria-label="Fechar">&times;</button>
+            <h3 class="pix-modal__title" id="pixTitle">Pague com Pix</h3>
+            <p class="pix-modal__plan" id="pixPlan">Plano Mensal — R$ 19,90</p>
+
+            <div class="pix-modal__qr">
+                <img id="pixQrImg" src="" alt="QR Code Pix">
+            </div>
+
+            <p class="pix-modal__label">Pix copia e cola:</p>
+            <div class="pix-modal__code">
+                <input id="pixCode" readonly value="">
+                <button class="pix-modal__copy" id="pixCopy">Copiar</button>
+            </div>
+
+            <a class="pix-modal__wa" id="pixWa" target="_blank" rel="noopener"
+               href="https://wa.me/5511966957972">
+                Já paguei — enviar comprovante
+            </a>
+            <p class="pix-modal__hint">Após o pagamento, envie o comprovante no WhatsApp para liberar o acesso.</p>
+        </div>
     </div>
-  </footer>
 
-  <!-- CTA verde fixo (mobile) -->
-  <a class="sticky-cta" data-wa="" data-wa-msg="trial" data-ev="test" data-loc="sticky" href="#" id="stickyCta">
-    <svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-    Teste grátis — 6 horas
-  </a>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+    <script>
+                  (function () {
+                    'use strict';
 
+                    var PAYPI_URL     = 'https://api.paypi-oficial.online/embed/pix';
+                    var PAYPI_STATUS  = 'https://api.paypi-oficial.online/embed/pix/status/';
+                    var PAYPI_ACCOUNT = 'db265b45-5393-4336-b813-940c4fdb280f';
 
-</body></html>
+                    var PLANOS = {
+                      'Mensal':     { preco: 'R$ 19,90',  centavos: 1990,  name: 'playcine011 — Plano Mensal'     },
+                      'Trimestral': { preco: 'R$ 49,90',  centavos: 4990,  name: 'playcine011 — Plano Trimestral' },
+                      'Semestral':  { preco: 'R$ 89,90',  centavos: 8990,  name: 'playcine011 — Plano Semestral'  },
+                      'Anual':      { preco: 'R$ 179,90', centavos: 17990, name: 'playcine011 — Plano Anual'      }
+                    };
+
+                    var modal     = document.getElementById('pixModal');
+                    var qrImg     = document.getElementById('pixQrImg');
+                    var planEl    = document.getElementById('pixPlan');
+                    var codeEl    = document.getElementById('pixCode');
+                    var copyBtn   = document.getElementById('pixCopy');
+                    var waBtn     = document.getElementById('pixWa');
+                    var poll      = null;
+
+                    // Elementos do pré-modal
+                    var nameModal  = document.getElementById('nameModal');
+                    var namePlanEl = document.getElementById('namePlan');
+                    var nameInput  = document.getElementById('nameInput');
+                    var nameConfirm= document.getElementById('nameConfirm');
+
+                    // Guarda o plano selecionado temporariamente
+                    var selectedPlan = null;
+
+                    function abrirModal() {
+                      modal.classList.add('is-open');
+                      modal.setAttribute('aria-hidden', 'false');
+                    }
+
+                    function fecharModal() {
+                      modal.classList.remove('is-open');
+                      modal.setAttribute('aria-hidden', 'true');
+                      if (poll) { clearInterval(poll); poll = null; }
+                    }
+
+                    function abrirNameModal() {
+                      nameModal.classList.add('is-open');
+                      nameModal.setAttribute('aria-hidden', 'false');
+                    }
+
+                    function fecharNameModal() {
+                      nameModal.classList.remove('is-open');
+                      nameModal.setAttribute('aria-hidden', 'true');
+                    }
+
+                    function atualizarWhats(plano, dados, correlationId) {
+                      var t = 'Olá! Fiz o Pix do plano ' + plano + ' (' + dados.preco + ').';
+                      if (correlationId) t += '\nID: ' + correlationId;
+                      waBtn.href = 'https://wa.me/5511966957972?text=' + encodeURIComponent(t);
+                    }
+
+                    // Nova função: gera o Pix usando o nome do cliente
+                    function gerarPix(plano, nomeCliente) {
+                      var dados = PLANOS[plano] || PLANOS['Mensal'];
+
+                      planEl.textContent = 'Plano ' + plano + ' — ' + dados.preco;
+
+                      qrImg.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">' +
+                        '<rect width="220" height="220" fill="#eee"/>' +
+                        '<text x="110" y="110" font-family="sans-serif" font-size="14" ' +
+                        'text-anchor="middle" fill="#888">Gerando...</text></svg>'
+                      );
+                      codeEl.value = 'Gerando cobrança...';
+                      abrirModal();
+
+                      fetch(PAYPI_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          name:       nomeCliente || dados.name,
+                          value:      dados.centavos,
+                          account_id: PAYPI_ACCOUNT
+                        })
+                      })
+                      .then(function (r) {
+                        return r.json().then(function (j) {
+                          if (!r.ok) throw new Error(j.message || j.error || ('Falha HTTP ' + r.status));
+                          return j;
+                        });
+                      })
+                      .then(function (pix) {
+                        var qr  = pix.qr_code_image || (pix.pix && pix.pix.pixQrCode && pix.pix.pixQrCode.qrCodeImage) || '';
+                        var br  = pix.br_code        || (pix.pix && pix.pix.pixQrCode && pix.pix.pixQrCode.brCode)        || '';
+                        var cid = pix.correlation_id || (pix.pix && pix.pix.pixQrCode && pix.pix.pixQrCode.correlationID) || '';
+
+                        if (!qr && !br) throw new Error('A API não devolveu o QR Code.');
+
+                        qrImg.src    = qr;
+                        codeEl.value = br;
+                        atualizarWhats(plano, dados, cid);
+
+                        if (poll) { clearInterval(poll); poll = null; }
+
+                        if (cid) {
+                          poll = setInterval(function () {
+                            fetch(PAYPI_STATUS + encodeURIComponent(cid))
+                              .then(function (r) { return r.ok ? r.json() : null; })
+                              .then(function (d) {
+                                if (!d) return;
+                                var st = String(d.status || '').toUpperCase();
+                                if (d.paid === true || st === 'PAID' || st === 'CONFIRMED' || st === 'COMPLETED' || st === 'DONE') {
+                                  clearInterval(poll); poll = null;
+                                  planEl.textContent = '✅ Pagamento confirmado!';
+                                  setTimeout(function () {
+                                    window.location.href = '/obrigado.html';
+                                  }, 1500);
+                                }
+                              })
+                              .catch(function () {});
+                          }, 4000);
+                        }
+                      })
+                      .catch(function (err) {
+                        console.error('[Pix Paypi]', err);
+                        codeEl.value = 'Erro ao gerar cobrança: ' + (err.message || 'tente novamente.');
+                      });
+                    }
+
+                    // Eventos de fechamento do modal Pix
+                    modal.querySelectorAll('[data-close]').forEach(function (el) {
+                      el.addEventListener('click', fecharModal);
+                    });
+                    document.addEventListener('keydown', function (e) {
+                      if (e.key === 'Escape') { fecharModal(); fecharNameModal(); }
+                    });
+
+                    // Eventos de fechamento do pré-modal
+                    nameModal.querySelectorAll('[data-name-close]').forEach(function (el) {
+                      el.addEventListener('click', fecharNameModal);
+                    });
+
+                    // Botão copiar
+                    copyBtn.addEventListener('click', function () {
+                      codeEl.select();
+                      codeEl.setSelectionRange(0, 99999);
+                      if (navigator.clipboard) {
+                        navigator.clipboard.writeText(codeEl.value).then(function () {
+                          copyBtn.textContent = 'Copiado!';
+                          setTimeout(function () { copyBtn.textContent = 'Copiar'; }, 2000);
+                        });
+                      } else {
+                        document.execCommand('copy');
+                      }
+                    });
+
+                    // Clique nos botões de plano → abre o pré-modal de nome
+                    document.querySelectorAll('.plan__cta').forEach(function (btn) {
+                      btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var plano = btn.getAttribute('data-plan') || 'Mensal';
+                        selectedPlan = plano;
+                        var dados = PLANOS[plano] || PLANOS['Mensal'];
+                        namePlanEl.textContent = 'Plano ' + plano + ' — ' + dados.preco;
+                        nameInput.value = '';
+                        abrirNameModal();
+                        nameInput.focus();
+                      });
+                    });
+
+                    // Confirmação do nome → fecha pré-modal e gera o Pix
+                    nameConfirm.addEventListener('click', function () {
+                      var nome = nameInput.value.trim();
+                      if (!nome) {
+                        nameInput.style.borderColor = '#ef4444';
+                        nameInput.placeholder = 'Por favor, digite seu nome';
+                        nameInput.focus();
+                        return;
+                      }
+                      nameInput.style.borderColor = '#333';
+                      fecharNameModal();
+                      gerarPix(selectedPlan, nome);
+                    });
+
+                    // Enter no campo de nome
+                    nameInput.addEventListener('keydown', function (e) {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        nameConfirm.click();
+                      }
+                    });
+
+                    // Limpa borda vermelha ao digitar
+                    nameInput.addEventListener('input', function () {
+                      nameInput.style.borderColor = '#333';
+                    });
+
+                  })();
+    </script>
+
+</body>
+</html>
